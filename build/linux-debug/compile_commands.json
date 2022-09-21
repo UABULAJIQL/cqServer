@@ -1,0 +1,57 @@
+[
+{
+  "directory": "/home/cq/Projects/cqServer/build/linux-debug/lib",
+  "command": "/usr/bin/c++  -I/home/cq/Projects/cqServer/lib -g -Wall -std=c++11 -O3 -o CMakeFiles/mylib.dir/network/buffer.cpp.o -c /home/cq/Projects/cqServer/lib/network/buffer.cpp",
+  "file": "/home/cq/Projects/cqServer/lib/network/buffer.cpp"
+},
+{
+  "directory": "/home/cq/Projects/cqServer/build/linux-debug/lib",
+  "command": "/usr/bin/c++  -I/home/cq/Projects/cqServer/lib -g -Wall -std=c++11 -O3 -o CMakeFiles/mylib.dir/network/circularQueueBuffer.cpp.o -c /home/cq/Projects/cqServer/lib/network/circularQueueBuffer.cpp",
+  "file": "/home/cq/Projects/cqServer/lib/network/circularQueueBuffer.cpp"
+},
+{
+  "directory": "/home/cq/Projects/cqServer/build/linux-debug/lib",
+  "command": "/usr/bin/c++  -I/home/cq/Projects/cqServer/lib -g -Wall -std=c++11 -O3 -o CMakeFiles/mylib.dir/network/connectObj.cpp.o -c /home/cq/Projects/cqServer/lib/network/connectObj.cpp",
+  "file": "/home/cq/Projects/cqServer/lib/network/connectObj.cpp"
+},
+{
+  "directory": "/home/cq/Projects/cqServer/build/linux-debug/lib",
+  "command": "/usr/bin/c++  -I/home/cq/Projects/cqServer/lib -g -Wall -std=c++11 -O3 -o CMakeFiles/mylib.dir/network/network.cpp.o -c /home/cq/Projects/cqServer/lib/network/network.cpp",
+  "file": "/home/cq/Projects/cqServer/lib/network/network.cpp"
+},
+{
+  "directory": "/home/cq/Projects/cqServer/build/linux-debug/lib",
+  "command": "/usr/bin/c++  -I/home/cq/Projects/cqServer/lib -g -Wall -std=c++11 -O3 -o CMakeFiles/mylib.dir/network/networkBuffer.cpp.o -c /home/cq/Projects/cqServer/lib/network/networkBuffer.cpp",
+  "file": "/home/cq/Projects/cqServer/lib/network/networkBuffer.cpp"
+},
+{
+  "directory": "/home/cq/Projects/cqServer/build/linux-debug/lib",
+  "command": "/usr/bin/c++  -I/home/cq/Projects/cqServer/lib -g -Wall -std=c++11 -O3 -o CMakeFiles/mylib.dir/network/networkConnector.cpp.o -c /home/cq/Projects/cqServer/lib/network/networkConnector.cpp",
+  "file": "/home/cq/Projects/cqServer/lib/network/networkConnector.cpp"
+},
+{
+  "directory": "/home/cq/Projects/cqServer/build/linux-debug/lib",
+  "command": "/usr/bin/c++  -I/home/cq/Projects/cqServer/lib -g -Wall -std=c++11 -O3 -o CMakeFiles/mylib.dir/network/networkListen.cpp.o -c /home/cq/Projects/cqServer/lib/network/networkListen.cpp",
+  "file": "/home/cq/Projects/cqServer/lib/network/networkListen.cpp"
+},
+{
+  "directory": "/home/cq/Projects/cqServer/build/linux-debug/lib",
+  "command": "/usr/bin/c++  -I/home/cq/Projects/cqServer/lib -g -Wall -std=c++11 -O3 -o CMakeFiles/mylib.dir/network/packet.cpp.o -c /home/cq/Projects/cqServer/lib/network/packet.cpp",
+  "file": "/home/cq/Projects/cqServer/lib/network/packet.cpp"
+},
+{
+  "directory": "/home/cq/Projects/cqServer/build/linux-debug/lib",
+  "command": "/usr/bin/c++  -I/home/cq/Projects/cqServer/lib -g -Wall -std=c++11 -O3 -o CMakeFiles/mylib.dir/epoll/epollClient.cpp.o -c /home/cq/Projects/cqServer/lib/epoll/epollClient.cpp",
+  "file": "/home/cq/Projects/cqServer/lib/epoll/epollClient.cpp"
+},
+{
+  "directory": "/home/cq/Projects/cqServer/build/linux-debug/lib",
+  "command": "/usr/bin/c++  -I/home/cq/Projects/cqServer/lib -g -Wall -std=c++11 -O3 -o CMakeFiles/mylib.dir/epoll/epollServer.cpp.o -c /home/cq/Projects/cqServer/lib/epoll/epollServer.cpp",
+  "file": "/home/cq/Projects/cqServer/lib/epoll/epollServer.cpp"
+},
+{
+  "directory": "/home/cq/Projects/cqServer/build/linux-debug/src",
+  "command": "/usr/bin/c++  -I/home/cq/Projects/cqServer/lib -g -Wall -std=c++11 -O3 -o CMakeFiles/main.dir/main.cpp.o -c /home/cq/Projects/cqServer/src/main.cpp",
+  "file": "/home/cq/Projects/cqServer/src/main.cpp"
+}
+]

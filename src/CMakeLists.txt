@@ -1,5 +1,5 @@
 #添加头文件路径
-# include_directories(${PROJECT_SOURCE_DIR}/mylib)
+include_directories(${PROJECT_SOURCE_DIR}/lib)
 
 #添加生成可执行文件的路径
 set(EXECUTABLE_OUTPUT_PATH ${PROJECT_BINARY_DIR}/bin)
@@ -11,4 +11,5 @@ aux_source_directory(./ files)
 add_executable(main ${files})
 
 #添加库文件
+target_link_libraries(main mylib)
 # target_link_libraries(main boost_system pthread protobuf mysqlclient)

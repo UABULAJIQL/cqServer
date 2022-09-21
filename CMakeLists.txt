@@ -5,10 +5,10 @@ cmake_minimum_required(VERSION 3.24.0)
 project(ProjectName)
 
 #编译参数
-add_compile_options(-Wall -std=c++11 -O2)
+add_compile_options(-Wall -std=c++11 -O3)
 
 #添加子目录
-# add_subdirectory(./lib)
+add_subdirectory(./lib)
 add_subdirectory(./src)
 
 
