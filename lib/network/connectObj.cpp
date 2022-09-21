@@ -29,31 +29,42 @@ bool ConnectObj::HasSendData() const {
 bool ConnectObj::Recv() const {
 
     char *dataTemp = nullptr;
-    unsigned int len;
-    int size;
+    unsigned int len = 0;
+    int size = 0;
+
 
     while (true) {
         len = _recvBuf->GetBuffer(dataTemp);
         size = ::recv(_socket, dataTemp, len, 0);
 
+        // std::cout << "剩余空间大小" << len << std::endl;
+
         if (size > 0) {
-            _recvBuf->ChangeEndIndex(len);
+
+            _recvBuf->ChangeEndIndex(size);
+
         } else if (size == 0) {
+            //断开连接了
             return false;
         } else {
             //中断错误 || 发送缓冲区满了 ||
             //下次或许可以成功一般出现在非阻塞的操作
-            if (errno == EINTR || errno == EWOULDBLOCK || errno == EAGAIN)
+            if (errno == EINTR || errno == EWOULDBLOCK || errno == EAGAIN){
+                // std::cout << "重新" << std::endl;
                 return true;
+            }
 
+            std::cout << "有错误 错误码" << errno << std::endl;
             return false;
         }
     }
+
+
 }
 
 bool ConnectObj::Send() const {
     char *dataTemp = nullptr;
-    unsigned int len;
+    int len;
     int size;
     while (true) {
         len = _sendBuf->GetBuffer(dataTemp);

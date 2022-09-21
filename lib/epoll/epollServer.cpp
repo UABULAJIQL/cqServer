@@ -19,7 +19,7 @@ bool EpollServer::Update() {
     }
 
     //设置阻塞50毫秒
-    int nready = epoll_wait(_epfd, _events, EVENTS, 50);
+    int nready = epoll_wait(_epfd, _events, EVENTS, 100);
 
     if (nready < 0) {
         if (errno == EINTR || errno == ECONNABORTED) {
@@ -40,7 +40,7 @@ bool EpollServer::Update() {
         //监听文件描述符
         if (_events[i].data.fd == _socket) {
             _acceptOn = true;
-            std::cout << "来连接了" << std::endl;
+            std::cout << "来连接了!!!!!!!!!!!!!!!!!!!!!!!!!" << std::endl;
             continue;
         }
 
@@ -58,6 +58,7 @@ bool EpollServer::Update() {
             //释放cobj
             connectsOne->second->Dispose();
             delete connectsOne->second;
+            connectsOne->second = nullptr;
 
             //移除map集合
             _connects.erase(connectsOne);
@@ -69,25 +70,32 @@ bool EpollServer::Update() {
 
         //接收事件
         if (_events[i].events & EPOLLIN) {
+            std::cout << "来数据了" << std::endl;
+
             //如果接收失败
             if (!connectsOne->second->Recv()) {
+                std::cout << "已经断开连接了" << std::endl;
 
                 //释放cobj
                 connectsOne->second->Dispose();
                 delete connectsOne->second;
+                connectsOne->second = nullptr;
 
                 //移除map集合
                 _connects.erase(connectsOne);
                 //下树
                 DeleteEventEpoll(_epfd, connectsOne->first);
             }
-            //接收到数据==============暂时
-            Packet *temp =
-                connectsOne->second->GetRecvNetworkBuffer()->GetPacket();
-            printf("服务器接收到了消息====%s\n", temp->GetBuffer());
 
-            if (temp != nullptr)
-                delete temp;
+            if (connectsOne->second != nullptr)
+                while (connectsOne->second->HasRecvData()) {
+                    Packet *temp = connectsOne->second->GetRecvNetworkBuffer()
+                        ->GetPacket();
+                    printf("服务器接收到了消息====%s\n", temp->GetBuffer());
+
+                    if (temp != nullptr)
+                        delete temp;
+                }
 
             continue;
         }
@@ -109,13 +117,10 @@ bool EpollServer::Update() {
     if (_acceptOn)
         Accept();
 
-    std::cout << "accept后" << std::endl;
-
     return true;
 }
 
 int EpollServer::Accept() {
-    std::cout << "accept" << std::endl;
 
     int acceptNum = 0;
     int tempfd;

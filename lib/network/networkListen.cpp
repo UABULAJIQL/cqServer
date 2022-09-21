@@ -30,13 +30,16 @@ bool NetworkListen::Listen(int prot, std::string ip = "") {
     //设置端口复用解除文件描述符的阻塞
     SetSocketOpt(_socket);
 
-    return false;
+    return true;
 }
 
 bool NetworkListen::CreateConnectObj(SOCKET socket) {
-    ConnectObj *cobj = new ConnectObj(this, _socket);
+    ConnectObj *cobj = new ConnectObj(this, socket);
     // _connects.emplace(std::make_pair(socket, cobj));
     _connects.emplace(socket, cobj);
+
+    //非阻塞设置+++++++++++++++++++++忘记了
+    SetSocketOpt(socket);
 
     //这个返回值再说----------
     return false;

@@ -11,26 +11,26 @@ RecvNetworkBuffer::RecvNetworkBuffer()
 
     //获取一个packet
     Packet *RecvNetworkBuffer::GetPacket() {
+        // std::cout << "已用长度:" << this->UnavailableLength() << std::endl;
         //获取消息长度
         TotalSizeType totalSize = 0;
         this->GetData((char *)&totalSize, sizeof(TotalSizeType));
-        std::cout << totalSize << std::endl;
 
         //获取包头
         PacketHead pHead;
         this->GetData((char *)&pHead, sizeof(PacketHead));
-        std::cout << pHead._msgId << std::endl;
 
         //防止意外多开一个大小
         Packet *packet = new Packet(totalSize + 1);
         packet->SetMessgeId(pHead._msgId);
         this->GetData(packet->GetBuffer(),
                 totalSize - sizeof(TotalSizeType) - sizeof(PacketHead));
-        packet->ChangeEndInedx(-totalSize - sizeof(TotalSizeType) -
+
+        //这里原来好像错了
+        packet->ChangeEndInedx(totalSize - sizeof(TotalSizeType) -
                 sizeof(PacketHead));
 
-        printf("%s\n", packet->GetBuffer());
-
+        // std::cout << "已用长度:" << this->UnavailableLength() << std::endl;
         return packet;
     }
 
@@ -55,6 +55,8 @@ void RecvNetworkBuffer::ChangeEndIndex(int size) {
     _endIndex += size;
     if (_endIndex == _bufferSize)
         _endIndex = 0;
+
+    _addData = true; //添加了数据
 }
 
 //------Send--------
