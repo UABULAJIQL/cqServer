@@ -8,8 +8,8 @@ set(EXECUTABLE_OUTPUT_PATH ${PROJECT_BINARY_DIR}/bin)
 aux_source_directory(./ files)
 
 #生成可执行文件
-add_executable(main ${files})
+add_executable(server ${files})
 
 #添加库文件
-target_link_libraries(main mylib pthread)
+target_link_libraries(server mylib pthread)
 # target_link_libraries(main boost_system pthread protobuf mysqlclient)

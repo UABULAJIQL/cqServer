@@ -1,23 +1,10 @@
-#include "network/epoll/epollClient.h"
-#include "network/epoll/epollServer.h"
-#include "packet/packet.h"
 #include <iostream>
+#include "network/epoll/epollClient.h"
+#include "packet/packet.h"
 
-void EpollServerTest() {
-    EpollServer e;
+using namespace std;
 
-    e.Listen(4663, "");
-
-    while (1)
-        if (!e.Update())
-            break;
-
-    // EpollServer中epoll树释放
-    e.Dispose();
-}
-
-void EpollClientTest() {
-
+int main(int argc, char *argv[]) {
     EpollClient e;
     e.Connect("127.0.0.1", 4663);
 
@@ -38,14 +25,6 @@ void EpollClientTest() {
     }
 
     e.Dispose();
-}
-
-int main() {
-    std::cout << "启动" << std::endl;
-
-    EpollServerTest();
-
-    std::cout << "结束" << std::endl;
 
     return 0;
 }

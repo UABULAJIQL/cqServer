@@ -1,10 +1,10 @@
 #ifndef _THREAD_H
 #define _THREAD_H
 
-#include <thread>
 #include "disposable.h"
+#include <thread>
 
-class Thread : IDisposable{
+class Thread : IDisposable {
 
     public:
         //启动
@@ -21,7 +21,6 @@ class Thread : IDisposable{
     protected:
         bool _isRun{false};
         std::thread _thread;
-
 };
 
 #endif
