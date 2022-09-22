@@ -1,6 +1,6 @@
 #include "networkConnector.h"
 #include "connectObj.h"
-#include "networkBuffer.h"
+#include "buffer/networkBuffer.h"
 
 bool NetworkConnector::Connect(std::string ip, int port) {
 
@@ -42,3 +42,16 @@ bool NetworkConnector::AddPacket(Packet *p) {
 Packet *NetworkConnector::GetPacket() {
     return _connectObj->GetRecvNetworkBuffer()->GetPacket();
 }
+
+void NetworkConnector::Dispose(){
+    Network::Dispose();
+
+    _connectObj->Dispose();
+
+    if(_connectObj != nullptr){
+        delete _connectObj;
+        _connectObj = nullptr;
+    }
+
+}
+

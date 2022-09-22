@@ -1,6 +1,6 @@
 #include "connectObj.h"
 #include "network.h"
-#include "networkBuffer.h"
+#include "buffer/networkBuffer.h"
 
 ConnectObj::ConnectObj(Network *network, int socket)
     : _socket(socket), _network(network) {
@@ -91,6 +91,20 @@ bool ConnectObj::Send() const {
 RecvNetworkBuffer *ConnectObj::GetRecvNetworkBuffer() const { return _recvBuf; }
 SendNetworkBuffer *ConnectObj::GetSendNetworkBuffer() const { return _sendBuf; }
 
-void ConnectObj::Dispose() {}
+void ConnectObj::Dispose() {
+    _recvBuf->Dispose();
+    _sendBuf->Dispose();
 
-ConnectObj::~ConnectObj() {}
+    if(_recvBuf != nullptr){
+        delete _recvBuf;
+        _recvBuf = nullptr;
+    }
+    if(_sendBuf != nullptr){
+        delete _sendBuf;
+        _sendBuf = nullptr;
+    }
+
+    //这个可不是你可以释放的
+    _network = nullptr;
+}
+

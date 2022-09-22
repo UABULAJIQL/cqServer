@@ -3,8 +3,7 @@ lib/CMakeFiles/mylib.dir/network/networkConnector.cpp.o: \
  /usr/include/stdc-predef.h \
  /home/cq/Projects/cqServer/lib/network/networkConnector.h \
  /home/cq/Projects/cqServer/lib/network/network.h \
- /home/cq/Projects/cqServer/lib/network/disposable.h \
- /usr/include/c++/9/iostream \
+ /home/cq/Projects/cqServer/lib/disposable.h /usr/include/c++/9/iostream \
  /usr/include/x86_64-linux-gnu/c++/9/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/9/bits/os_defines.h \
  /usr/include/features.h /usr/include/x86_64-linux-gnu/sys/cdefs.h \
@@ -166,6 +165,6 @@ lib/CMakeFiles/mylib.dir/network/networkConnector.cpp.o: \
  /usr/include/x86_64-linux-gnu/bits/socket2.h \
  /usr/include/x86_64-linux-gnu/bits/in.h /usr/include/netinet/tcp.h \
  /home/cq/Projects/cqServer/lib/network/connectObj.h \
- /home/cq/Projects/cqServer/lib/network/networkBuffer.h \
- /home/cq/Projects/cqServer/lib/network/circularQueueBuffer.h \
- /home/cq/Projects/cqServer/lib/network/buffer.h
+ /home/cq/Projects/cqServer/lib/buffer/networkBuffer.h \
+ /home/cq/Projects/cqServer/lib/buffer/circularQueueBuffer.h \
+ /home/cq/Projects/cqServer/lib/buffer/buffer.h

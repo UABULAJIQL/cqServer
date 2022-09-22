@@ -69,38 +69,10 @@ include lib/CMakeFiles/mylib.dir/progress.make
 # Include the compile flags for this target's objects.
 include lib/CMakeFiles/mylib.dir/flags.make
 
-lib/CMakeFiles/mylib.dir/network/buffer.cpp.o: lib/CMakeFiles/mylib.dir/flags.make
-lib/CMakeFiles/mylib.dir/network/buffer.cpp.o: /home/cq/Projects/cqServer/lib/network/buffer.cpp
-lib/CMakeFiles/mylib.dir/network/buffer.cpp.o: lib/CMakeFiles/mylib.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cq/Projects/cqServer/build/linux-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object lib/CMakeFiles/mylib.dir/network/buffer.cpp.o"
-	cd /home/cq/Projects/cqServer/build/linux-debug/lib && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT lib/CMakeFiles/mylib.dir/network/buffer.cpp.o -MF CMakeFiles/mylib.dir/network/buffer.cpp.o.d -o CMakeFiles/mylib.dir/network/buffer.cpp.o -c /home/cq/Projects/cqServer/lib/network/buffer.cpp
-
-lib/CMakeFiles/mylib.dir/network/buffer.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mylib.dir/network/buffer.cpp.i"
-	cd /home/cq/Projects/cqServer/build/linux-debug/lib && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/cq/Projects/cqServer/lib/network/buffer.cpp > CMakeFiles/mylib.dir/network/buffer.cpp.i
-
-lib/CMakeFiles/mylib.dir/network/buffer.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mylib.dir/network/buffer.cpp.s"
-	cd /home/cq/Projects/cqServer/build/linux-debug/lib && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cq/Projects/cqServer/lib/network/buffer.cpp -o CMakeFiles/mylib.dir/network/buffer.cpp.s
-
-lib/CMakeFiles/mylib.dir/network/circularQueueBuffer.cpp.o: lib/CMakeFiles/mylib.dir/flags.make
-lib/CMakeFiles/mylib.dir/network/circularQueueBuffer.cpp.o: /home/cq/Projects/cqServer/lib/network/circularQueueBuffer.cpp
-lib/CMakeFiles/mylib.dir/network/circularQueueBuffer.cpp.o: lib/CMakeFiles/mylib.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cq/Projects/cqServer/build/linux-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object lib/CMakeFiles/mylib.dir/network/circularQueueBuffer.cpp.o"
-	cd /home/cq/Projects/cqServer/build/linux-debug/lib && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT lib/CMakeFiles/mylib.dir/network/circularQueueBuffer.cpp.o -MF CMakeFiles/mylib.dir/network/circularQueueBuffer.cpp.o.d -o CMakeFiles/mylib.dir/network/circularQueueBuffer.cpp.o -c /home/cq/Projects/cqServer/lib/network/circularQueueBuffer.cpp
-
-lib/CMakeFiles/mylib.dir/network/circularQueueBuffer.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mylib.dir/network/circularQueueBuffer.cpp.i"
-	cd /home/cq/Projects/cqServer/build/linux-debug/lib && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/cq/Projects/cqServer/lib/network/circularQueueBuffer.cpp > CMakeFiles/mylib.dir/network/circularQueueBuffer.cpp.i
-
-lib/CMakeFiles/mylib.dir/network/circularQueueBuffer.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mylib.dir/network/circularQueueBuffer.cpp.s"
-	cd /home/cq/Projects/cqServer/build/linux-debug/lib && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cq/Projects/cqServer/lib/network/circularQueueBuffer.cpp -o CMakeFiles/mylib.dir/network/circularQueueBuffer.cpp.s
-
 lib/CMakeFiles/mylib.dir/network/connectObj.cpp.o: lib/CMakeFiles/mylib.dir/flags.make
 lib/CMakeFiles/mylib.dir/network/connectObj.cpp.o: /home/cq/Projects/cqServer/lib/network/connectObj.cpp
 lib/CMakeFiles/mylib.dir/network/connectObj.cpp.o: lib/CMakeFiles/mylib.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cq/Projects/cqServer/build/linux-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object lib/CMakeFiles/mylib.dir/network/connectObj.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cq/Projects/cqServer/build/linux-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object lib/CMakeFiles/mylib.dir/network/connectObj.cpp.o"
 	cd /home/cq/Projects/cqServer/build/linux-debug/lib && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT lib/CMakeFiles/mylib.dir/network/connectObj.cpp.o -MF CMakeFiles/mylib.dir/network/connectObj.cpp.o.d -o CMakeFiles/mylib.dir/network/connectObj.cpp.o -c /home/cq/Projects/cqServer/lib/network/connectObj.cpp
 
 lib/CMakeFiles/mylib.dir/network/connectObj.cpp.i: cmake_force
@@ -114,7 +86,7 @@ lib/CMakeFiles/mylib.dir/network/connectObj.cpp.s: cmake_force
 lib/CMakeFiles/mylib.dir/network/network.cpp.o: lib/CMakeFiles/mylib.dir/flags.make
 lib/CMakeFiles/mylib.dir/network/network.cpp.o: /home/cq/Projects/cqServer/lib/network/network.cpp
 lib/CMakeFiles/mylib.dir/network/network.cpp.o: lib/CMakeFiles/mylib.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cq/Projects/cqServer/build/linux-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object lib/CMakeFiles/mylib.dir/network/network.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cq/Projects/cqServer/build/linux-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object lib/CMakeFiles/mylib.dir/network/network.cpp.o"
 	cd /home/cq/Projects/cqServer/build/linux-debug/lib && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT lib/CMakeFiles/mylib.dir/network/network.cpp.o -MF CMakeFiles/mylib.dir/network/network.cpp.o.d -o CMakeFiles/mylib.dir/network/network.cpp.o -c /home/cq/Projects/cqServer/lib/network/network.cpp
 
 lib/CMakeFiles/mylib.dir/network/network.cpp.i: cmake_force
@@ -125,24 +97,10 @@ lib/CMakeFiles/mylib.dir/network/network.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mylib.dir/network/network.cpp.s"
 	cd /home/cq/Projects/cqServer/build/linux-debug/lib && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cq/Projects/cqServer/lib/network/network.cpp -o CMakeFiles/mylib.dir/network/network.cpp.s
 
-lib/CMakeFiles/mylib.dir/network/networkBuffer.cpp.o: lib/CMakeFiles/mylib.dir/flags.make
-lib/CMakeFiles/mylib.dir/network/networkBuffer.cpp.o: /home/cq/Projects/cqServer/lib/network/networkBuffer.cpp
-lib/CMakeFiles/mylib.dir/network/networkBuffer.cpp.o: lib/CMakeFiles/mylib.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cq/Projects/cqServer/build/linux-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object lib/CMakeFiles/mylib.dir/network/networkBuffer.cpp.o"
-	cd /home/cq/Projects/cqServer/build/linux-debug/lib && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT lib/CMakeFiles/mylib.dir/network/networkBuffer.cpp.o -MF CMakeFiles/mylib.dir/network/networkBuffer.cpp.o.d -o CMakeFiles/mylib.dir/network/networkBuffer.cpp.o -c /home/cq/Projects/cqServer/lib/network/networkBuffer.cpp
-
-lib/CMakeFiles/mylib.dir/network/networkBuffer.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mylib.dir/network/networkBuffer.cpp.i"
-	cd /home/cq/Projects/cqServer/build/linux-debug/lib && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/cq/Projects/cqServer/lib/network/networkBuffer.cpp > CMakeFiles/mylib.dir/network/networkBuffer.cpp.i
-
-lib/CMakeFiles/mylib.dir/network/networkBuffer.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mylib.dir/network/networkBuffer.cpp.s"
-	cd /home/cq/Projects/cqServer/build/linux-debug/lib && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cq/Projects/cqServer/lib/network/networkBuffer.cpp -o CMakeFiles/mylib.dir/network/networkBuffer.cpp.s
-
 lib/CMakeFiles/mylib.dir/network/networkConnector.cpp.o: lib/CMakeFiles/mylib.dir/flags.make
 lib/CMakeFiles/mylib.dir/network/networkConnector.cpp.o: /home/cq/Projects/cqServer/lib/network/networkConnector.cpp
 lib/CMakeFiles/mylib.dir/network/networkConnector.cpp.o: lib/CMakeFiles/mylib.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cq/Projects/cqServer/build/linux-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object lib/CMakeFiles/mylib.dir/network/networkConnector.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cq/Projects/cqServer/build/linux-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object lib/CMakeFiles/mylib.dir/network/networkConnector.cpp.o"
 	cd /home/cq/Projects/cqServer/build/linux-debug/lib && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT lib/CMakeFiles/mylib.dir/network/networkConnector.cpp.o -MF CMakeFiles/mylib.dir/network/networkConnector.cpp.o.d -o CMakeFiles/mylib.dir/network/networkConnector.cpp.o -c /home/cq/Projects/cqServer/lib/network/networkConnector.cpp
 
 lib/CMakeFiles/mylib.dir/network/networkConnector.cpp.i: cmake_force
@@ -156,7 +114,7 @@ lib/CMakeFiles/mylib.dir/network/networkConnector.cpp.s: cmake_force
 lib/CMakeFiles/mylib.dir/network/networkListen.cpp.o: lib/CMakeFiles/mylib.dir/flags.make
 lib/CMakeFiles/mylib.dir/network/networkListen.cpp.o: /home/cq/Projects/cqServer/lib/network/networkListen.cpp
 lib/CMakeFiles/mylib.dir/network/networkListen.cpp.o: lib/CMakeFiles/mylib.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cq/Projects/cqServer/build/linux-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object lib/CMakeFiles/mylib.dir/network/networkListen.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cq/Projects/cqServer/build/linux-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object lib/CMakeFiles/mylib.dir/network/networkListen.cpp.o"
 	cd /home/cq/Projects/cqServer/build/linux-debug/lib && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT lib/CMakeFiles/mylib.dir/network/networkListen.cpp.o -MF CMakeFiles/mylib.dir/network/networkListen.cpp.o.d -o CMakeFiles/mylib.dir/network/networkListen.cpp.o -c /home/cq/Projects/cqServer/lib/network/networkListen.cpp
 
 lib/CMakeFiles/mylib.dir/network/networkListen.cpp.i: cmake_force
@@ -167,74 +125,116 @@ lib/CMakeFiles/mylib.dir/network/networkListen.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mylib.dir/network/networkListen.cpp.s"
 	cd /home/cq/Projects/cqServer/build/linux-debug/lib && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cq/Projects/cqServer/lib/network/networkListen.cpp -o CMakeFiles/mylib.dir/network/networkListen.cpp.s
 
-lib/CMakeFiles/mylib.dir/network/packet.cpp.o: lib/CMakeFiles/mylib.dir/flags.make
-lib/CMakeFiles/mylib.dir/network/packet.cpp.o: /home/cq/Projects/cqServer/lib/network/packet.cpp
-lib/CMakeFiles/mylib.dir/network/packet.cpp.o: lib/CMakeFiles/mylib.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cq/Projects/cqServer/build/linux-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object lib/CMakeFiles/mylib.dir/network/packet.cpp.o"
-	cd /home/cq/Projects/cqServer/build/linux-debug/lib && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT lib/CMakeFiles/mylib.dir/network/packet.cpp.o -MF CMakeFiles/mylib.dir/network/packet.cpp.o.d -o CMakeFiles/mylib.dir/network/packet.cpp.o -c /home/cq/Projects/cqServer/lib/network/packet.cpp
+lib/CMakeFiles/mylib.dir/network/epoll/epollClient.cpp.o: lib/CMakeFiles/mylib.dir/flags.make
+lib/CMakeFiles/mylib.dir/network/epoll/epollClient.cpp.o: /home/cq/Projects/cqServer/lib/network/epoll/epollClient.cpp
+lib/CMakeFiles/mylib.dir/network/epoll/epollClient.cpp.o: lib/CMakeFiles/mylib.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cq/Projects/cqServer/build/linux-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object lib/CMakeFiles/mylib.dir/network/epoll/epollClient.cpp.o"
+	cd /home/cq/Projects/cqServer/build/linux-debug/lib && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT lib/CMakeFiles/mylib.dir/network/epoll/epollClient.cpp.o -MF CMakeFiles/mylib.dir/network/epoll/epollClient.cpp.o.d -o CMakeFiles/mylib.dir/network/epoll/epollClient.cpp.o -c /home/cq/Projects/cqServer/lib/network/epoll/epollClient.cpp
 
-lib/CMakeFiles/mylib.dir/network/packet.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mylib.dir/network/packet.cpp.i"
-	cd /home/cq/Projects/cqServer/build/linux-debug/lib && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/cq/Projects/cqServer/lib/network/packet.cpp > CMakeFiles/mylib.dir/network/packet.cpp.i
+lib/CMakeFiles/mylib.dir/network/epoll/epollClient.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mylib.dir/network/epoll/epollClient.cpp.i"
+	cd /home/cq/Projects/cqServer/build/linux-debug/lib && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/cq/Projects/cqServer/lib/network/epoll/epollClient.cpp > CMakeFiles/mylib.dir/network/epoll/epollClient.cpp.i
 
-lib/CMakeFiles/mylib.dir/network/packet.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mylib.dir/network/packet.cpp.s"
-	cd /home/cq/Projects/cqServer/build/linux-debug/lib && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cq/Projects/cqServer/lib/network/packet.cpp -o CMakeFiles/mylib.dir/network/packet.cpp.s
+lib/CMakeFiles/mylib.dir/network/epoll/epollClient.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mylib.dir/network/epoll/epollClient.cpp.s"
+	cd /home/cq/Projects/cqServer/build/linux-debug/lib && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cq/Projects/cqServer/lib/network/epoll/epollClient.cpp -o CMakeFiles/mylib.dir/network/epoll/epollClient.cpp.s
 
-lib/CMakeFiles/mylib.dir/epoll/epollClient.cpp.o: lib/CMakeFiles/mylib.dir/flags.make
-lib/CMakeFiles/mylib.dir/epoll/epollClient.cpp.o: /home/cq/Projects/cqServer/lib/epoll/epollClient.cpp
-lib/CMakeFiles/mylib.dir/epoll/epollClient.cpp.o: lib/CMakeFiles/mylib.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cq/Projects/cqServer/build/linux-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object lib/CMakeFiles/mylib.dir/epoll/epollClient.cpp.o"
-	cd /home/cq/Projects/cqServer/build/linux-debug/lib && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT lib/CMakeFiles/mylib.dir/epoll/epollClient.cpp.o -MF CMakeFiles/mylib.dir/epoll/epollClient.cpp.o.d -o CMakeFiles/mylib.dir/epoll/epollClient.cpp.o -c /home/cq/Projects/cqServer/lib/epoll/epollClient.cpp
+lib/CMakeFiles/mylib.dir/network/epoll/epollServer.cpp.o: lib/CMakeFiles/mylib.dir/flags.make
+lib/CMakeFiles/mylib.dir/network/epoll/epollServer.cpp.o: /home/cq/Projects/cqServer/lib/network/epoll/epollServer.cpp
+lib/CMakeFiles/mylib.dir/network/epoll/epollServer.cpp.o: lib/CMakeFiles/mylib.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cq/Projects/cqServer/build/linux-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object lib/CMakeFiles/mylib.dir/network/epoll/epollServer.cpp.o"
+	cd /home/cq/Projects/cqServer/build/linux-debug/lib && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT lib/CMakeFiles/mylib.dir/network/epoll/epollServer.cpp.o -MF CMakeFiles/mylib.dir/network/epoll/epollServer.cpp.o.d -o CMakeFiles/mylib.dir/network/epoll/epollServer.cpp.o -c /home/cq/Projects/cqServer/lib/network/epoll/epollServer.cpp
 
-lib/CMakeFiles/mylib.dir/epoll/epollClient.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mylib.dir/epoll/epollClient.cpp.i"
-	cd /home/cq/Projects/cqServer/build/linux-debug/lib && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/cq/Projects/cqServer/lib/epoll/epollClient.cpp > CMakeFiles/mylib.dir/epoll/epollClient.cpp.i
+lib/CMakeFiles/mylib.dir/network/epoll/epollServer.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mylib.dir/network/epoll/epollServer.cpp.i"
+	cd /home/cq/Projects/cqServer/build/linux-debug/lib && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/cq/Projects/cqServer/lib/network/epoll/epollServer.cpp > CMakeFiles/mylib.dir/network/epoll/epollServer.cpp.i
 
-lib/CMakeFiles/mylib.dir/epoll/epollClient.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mylib.dir/epoll/epollClient.cpp.s"
-	cd /home/cq/Projects/cqServer/build/linux-debug/lib && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cq/Projects/cqServer/lib/epoll/epollClient.cpp -o CMakeFiles/mylib.dir/epoll/epollClient.cpp.s
+lib/CMakeFiles/mylib.dir/network/epoll/epollServer.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mylib.dir/network/epoll/epollServer.cpp.s"
+	cd /home/cq/Projects/cqServer/build/linux-debug/lib && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cq/Projects/cqServer/lib/network/epoll/epollServer.cpp -o CMakeFiles/mylib.dir/network/epoll/epollServer.cpp.s
 
-lib/CMakeFiles/mylib.dir/epoll/epollServer.cpp.o: lib/CMakeFiles/mylib.dir/flags.make
-lib/CMakeFiles/mylib.dir/epoll/epollServer.cpp.o: /home/cq/Projects/cqServer/lib/epoll/epollServer.cpp
-lib/CMakeFiles/mylib.dir/epoll/epollServer.cpp.o: lib/CMakeFiles/mylib.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cq/Projects/cqServer/build/linux-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object lib/CMakeFiles/mylib.dir/epoll/epollServer.cpp.o"
-	cd /home/cq/Projects/cqServer/build/linux-debug/lib && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT lib/CMakeFiles/mylib.dir/epoll/epollServer.cpp.o -MF CMakeFiles/mylib.dir/epoll/epollServer.cpp.o.d -o CMakeFiles/mylib.dir/epoll/epollServer.cpp.o -c /home/cq/Projects/cqServer/lib/epoll/epollServer.cpp
+lib/CMakeFiles/mylib.dir/buffer/buffer.cpp.o: lib/CMakeFiles/mylib.dir/flags.make
+lib/CMakeFiles/mylib.dir/buffer/buffer.cpp.o: /home/cq/Projects/cqServer/lib/buffer/buffer.cpp
+lib/CMakeFiles/mylib.dir/buffer/buffer.cpp.o: lib/CMakeFiles/mylib.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cq/Projects/cqServer/build/linux-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object lib/CMakeFiles/mylib.dir/buffer/buffer.cpp.o"
+	cd /home/cq/Projects/cqServer/build/linux-debug/lib && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT lib/CMakeFiles/mylib.dir/buffer/buffer.cpp.o -MF CMakeFiles/mylib.dir/buffer/buffer.cpp.o.d -o CMakeFiles/mylib.dir/buffer/buffer.cpp.o -c /home/cq/Projects/cqServer/lib/buffer/buffer.cpp
 
-lib/CMakeFiles/mylib.dir/epoll/epollServer.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mylib.dir/epoll/epollServer.cpp.i"
-	cd /home/cq/Projects/cqServer/build/linux-debug/lib && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/cq/Projects/cqServer/lib/epoll/epollServer.cpp > CMakeFiles/mylib.dir/epoll/epollServer.cpp.i
+lib/CMakeFiles/mylib.dir/buffer/buffer.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mylib.dir/buffer/buffer.cpp.i"
+	cd /home/cq/Projects/cqServer/build/linux-debug/lib && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/cq/Projects/cqServer/lib/buffer/buffer.cpp > CMakeFiles/mylib.dir/buffer/buffer.cpp.i
 
-lib/CMakeFiles/mylib.dir/epoll/epollServer.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mylib.dir/epoll/epollServer.cpp.s"
-	cd /home/cq/Projects/cqServer/build/linux-debug/lib && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cq/Projects/cqServer/lib/epoll/epollServer.cpp -o CMakeFiles/mylib.dir/epoll/epollServer.cpp.s
+lib/CMakeFiles/mylib.dir/buffer/buffer.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mylib.dir/buffer/buffer.cpp.s"
+	cd /home/cq/Projects/cqServer/build/linux-debug/lib && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cq/Projects/cqServer/lib/buffer/buffer.cpp -o CMakeFiles/mylib.dir/buffer/buffer.cpp.s
+
+lib/CMakeFiles/mylib.dir/buffer/circularQueueBuffer.cpp.o: lib/CMakeFiles/mylib.dir/flags.make
+lib/CMakeFiles/mylib.dir/buffer/circularQueueBuffer.cpp.o: /home/cq/Projects/cqServer/lib/buffer/circularQueueBuffer.cpp
+lib/CMakeFiles/mylib.dir/buffer/circularQueueBuffer.cpp.o: lib/CMakeFiles/mylib.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cq/Projects/cqServer/build/linux-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object lib/CMakeFiles/mylib.dir/buffer/circularQueueBuffer.cpp.o"
+	cd /home/cq/Projects/cqServer/build/linux-debug/lib && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT lib/CMakeFiles/mylib.dir/buffer/circularQueueBuffer.cpp.o -MF CMakeFiles/mylib.dir/buffer/circularQueueBuffer.cpp.o.d -o CMakeFiles/mylib.dir/buffer/circularQueueBuffer.cpp.o -c /home/cq/Projects/cqServer/lib/buffer/circularQueueBuffer.cpp
+
+lib/CMakeFiles/mylib.dir/buffer/circularQueueBuffer.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mylib.dir/buffer/circularQueueBuffer.cpp.i"
+	cd /home/cq/Projects/cqServer/build/linux-debug/lib && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/cq/Projects/cqServer/lib/buffer/circularQueueBuffer.cpp > CMakeFiles/mylib.dir/buffer/circularQueueBuffer.cpp.i
+
+lib/CMakeFiles/mylib.dir/buffer/circularQueueBuffer.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mylib.dir/buffer/circularQueueBuffer.cpp.s"
+	cd /home/cq/Projects/cqServer/build/linux-debug/lib && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cq/Projects/cqServer/lib/buffer/circularQueueBuffer.cpp -o CMakeFiles/mylib.dir/buffer/circularQueueBuffer.cpp.s
+
+lib/CMakeFiles/mylib.dir/buffer/networkBuffer.cpp.o: lib/CMakeFiles/mylib.dir/flags.make
+lib/CMakeFiles/mylib.dir/buffer/networkBuffer.cpp.o: /home/cq/Projects/cqServer/lib/buffer/networkBuffer.cpp
+lib/CMakeFiles/mylib.dir/buffer/networkBuffer.cpp.o: lib/CMakeFiles/mylib.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cq/Projects/cqServer/build/linux-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object lib/CMakeFiles/mylib.dir/buffer/networkBuffer.cpp.o"
+	cd /home/cq/Projects/cqServer/build/linux-debug/lib && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT lib/CMakeFiles/mylib.dir/buffer/networkBuffer.cpp.o -MF CMakeFiles/mylib.dir/buffer/networkBuffer.cpp.o.d -o CMakeFiles/mylib.dir/buffer/networkBuffer.cpp.o -c /home/cq/Projects/cqServer/lib/buffer/networkBuffer.cpp
+
+lib/CMakeFiles/mylib.dir/buffer/networkBuffer.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mylib.dir/buffer/networkBuffer.cpp.i"
+	cd /home/cq/Projects/cqServer/build/linux-debug/lib && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/cq/Projects/cqServer/lib/buffer/networkBuffer.cpp > CMakeFiles/mylib.dir/buffer/networkBuffer.cpp.i
+
+lib/CMakeFiles/mylib.dir/buffer/networkBuffer.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mylib.dir/buffer/networkBuffer.cpp.s"
+	cd /home/cq/Projects/cqServer/build/linux-debug/lib && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cq/Projects/cqServer/lib/buffer/networkBuffer.cpp -o CMakeFiles/mylib.dir/buffer/networkBuffer.cpp.s
+
+lib/CMakeFiles/mylib.dir/packet/packet.cpp.o: lib/CMakeFiles/mylib.dir/flags.make
+lib/CMakeFiles/mylib.dir/packet/packet.cpp.o: /home/cq/Projects/cqServer/lib/packet/packet.cpp
+lib/CMakeFiles/mylib.dir/packet/packet.cpp.o: lib/CMakeFiles/mylib.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cq/Projects/cqServer/build/linux-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object lib/CMakeFiles/mylib.dir/packet/packet.cpp.o"
+	cd /home/cq/Projects/cqServer/build/linux-debug/lib && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT lib/CMakeFiles/mylib.dir/packet/packet.cpp.o -MF CMakeFiles/mylib.dir/packet/packet.cpp.o.d -o CMakeFiles/mylib.dir/packet/packet.cpp.o -c /home/cq/Projects/cqServer/lib/packet/packet.cpp
+
+lib/CMakeFiles/mylib.dir/packet/packet.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mylib.dir/packet/packet.cpp.i"
+	cd /home/cq/Projects/cqServer/build/linux-debug/lib && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/cq/Projects/cqServer/lib/packet/packet.cpp > CMakeFiles/mylib.dir/packet/packet.cpp.i
+
+lib/CMakeFiles/mylib.dir/packet/packet.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mylib.dir/packet/packet.cpp.s"
+	cd /home/cq/Projects/cqServer/build/linux-debug/lib && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cq/Projects/cqServer/lib/packet/packet.cpp -o CMakeFiles/mylib.dir/packet/packet.cpp.s
 
 # Object files for target mylib
 mylib_OBJECTS = \
-"CMakeFiles/mylib.dir/network/buffer.cpp.o" \
-"CMakeFiles/mylib.dir/network/circularQueueBuffer.cpp.o" \
 "CMakeFiles/mylib.dir/network/connectObj.cpp.o" \
 "CMakeFiles/mylib.dir/network/network.cpp.o" \
-"CMakeFiles/mylib.dir/network/networkBuffer.cpp.o" \
 "CMakeFiles/mylib.dir/network/networkConnector.cpp.o" \
 "CMakeFiles/mylib.dir/network/networkListen.cpp.o" \
-"CMakeFiles/mylib.dir/network/packet.cpp.o" \
-"CMakeFiles/mylib.dir/epoll/epollClient.cpp.o" \
-"CMakeFiles/mylib.dir/epoll/epollServer.cpp.o"
+"CMakeFiles/mylib.dir/network/epoll/epollClient.cpp.o" \
+"CMakeFiles/mylib.dir/network/epoll/epollServer.cpp.o" \
+"CMakeFiles/mylib.dir/buffer/buffer.cpp.o" \
+"CMakeFiles/mylib.dir/buffer/circularQueueBuffer.cpp.o" \
+"CMakeFiles/mylib.dir/buffer/networkBuffer.cpp.o" \
+"CMakeFiles/mylib.dir/packet/packet.cpp.o"
 
 # External object files for target mylib
 mylib_EXTERNAL_OBJECTS =
 
-lib/libmylib.a: lib/CMakeFiles/mylib.dir/network/buffer.cpp.o
-lib/libmylib.a: lib/CMakeFiles/mylib.dir/network/circularQueueBuffer.cpp.o
 lib/libmylib.a: lib/CMakeFiles/mylib.dir/network/connectObj.cpp.o
 lib/libmylib.a: lib/CMakeFiles/mylib.dir/network/network.cpp.o
-lib/libmylib.a: lib/CMakeFiles/mylib.dir/network/networkBuffer.cpp.o
 lib/libmylib.a: lib/CMakeFiles/mylib.dir/network/networkConnector.cpp.o
 lib/libmylib.a: lib/CMakeFiles/mylib.dir/network/networkListen.cpp.o
-lib/libmylib.a: lib/CMakeFiles/mylib.dir/network/packet.cpp.o
-lib/libmylib.a: lib/CMakeFiles/mylib.dir/epoll/epollClient.cpp.o
-lib/libmylib.a: lib/CMakeFiles/mylib.dir/epoll/epollServer.cpp.o
+lib/libmylib.a: lib/CMakeFiles/mylib.dir/network/epoll/epollClient.cpp.o
+lib/libmylib.a: lib/CMakeFiles/mylib.dir/network/epoll/epollServer.cpp.o
+lib/libmylib.a: lib/CMakeFiles/mylib.dir/buffer/buffer.cpp.o
+lib/libmylib.a: lib/CMakeFiles/mylib.dir/buffer/circularQueueBuffer.cpp.o
+lib/libmylib.a: lib/CMakeFiles/mylib.dir/buffer/networkBuffer.cpp.o
+lib/libmylib.a: lib/CMakeFiles/mylib.dir/packet/packet.cpp.o
 lib/libmylib.a: lib/CMakeFiles/mylib.dir/build.make
 lib/libmylib.a: lib/CMakeFiles/mylib.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/cq/Projects/cqServer/build/linux-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Linking CXX static library libmylib.a"

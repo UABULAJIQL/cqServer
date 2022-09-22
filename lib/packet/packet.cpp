@@ -12,3 +12,7 @@ void Packet::ChangeEndInedx(int size) { _endIndex += size; }
 int Packet::GetMessgeId() const { return _msgId; }
 
 void Packet::SetMessgeId(int msgId) { _msgId = msgId; }
+
+Packet::~Packet(){
+    Buffer::Dispose();
+}

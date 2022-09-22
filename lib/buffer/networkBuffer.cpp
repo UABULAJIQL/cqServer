@@ -1,5 +1,5 @@
 #include "networkBuffer.h"
-#include "packet.h"
+#include "packet/packet.h"
 #include <cstring>
 #include <iostream>
 
@@ -47,7 +47,7 @@ unsigned int RecvNetworkBuffer::GetBuffer(char *&buf) const {
         if (_addData)
             return 0;
         else
-            return _bufferSize;
+            return _bufferSize - _endIndex;
     }
 }
 

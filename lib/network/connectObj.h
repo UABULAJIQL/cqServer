@@ -6,6 +6,7 @@ class RecvNetworkBuffer;
 class SendNetworkBuffer;
 
 #include "disposable.h"
+
 class ConnectObj : IDisposable {
     protected:
         const int _socket;
@@ -31,7 +32,6 @@ class ConnectObj : IDisposable {
         //获取发送缓冲区
         SendNetworkBuffer *GetSendNetworkBuffer() const;
 
-        ~ConnectObj() override;
         void Dispose() override;
 };
 

@@ -1,6 +1,6 @@
 #ifndef _PACKET_H
 #define _PACKET_H
-#include "buffer.h"
+#include "buffer/buffer.h"
 
 #pragma pack(push)
 #pragma pack(4)
@@ -29,6 +29,8 @@ class Packet : public Buffer {
         //获取消息ID
         int GetMessgeId() const;
         void SetMessgeId(int msgId);
+        //Packet一般不会去调用Dispose吧所以还是使用析构来释放
+        ~Packet();
 };
 
 #endif

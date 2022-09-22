@@ -28,7 +28,7 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 19,
+				"line" : 22,
 				"parent" : 0
 			},
 			{
@@ -124,18 +124,6 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "lib/network/buffer.cpp",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 1,
-			"compileGroupIndex" : 0,
-			"path" : "lib/network/circularQueueBuffer.cpp",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 1,
-			"compileGroupIndex" : 0,
 			"path" : "lib/network/connectObj.cpp",
 			"sourceGroupIndex" : 0
 		},
@@ -143,12 +131,6 @@
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
 			"path" : "lib/network/network.cpp",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 1,
-			"compileGroupIndex" : 0,
-			"path" : "lib/network/networkBuffer.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
@@ -166,19 +148,37 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "lib/network/packet.cpp",
+			"path" : "lib/network/epoll/epollClient.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "lib/epoll/epollClient.cpp",
+			"path" : "lib/network/epoll/epollServer.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "lib/epoll/epollServer.cpp",
+			"path" : "lib/buffer/buffer.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "lib/buffer/circularQueueBuffer.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "lib/buffer/networkBuffer.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "lib/packet/packet.cpp",
 			"sourceGroupIndex" : 0
 		}
 	],

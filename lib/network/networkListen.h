@@ -14,13 +14,13 @@ class NetworkListen : public Network {
     //监听是请求
     virtual bool Update() = 0;
 
-    //有虚函数 所以要有虚析构
-    virtual ~NetworkListen() = default;
+    void Dispose() override;
   protected:
     //获取连接 添加到集合中 返回值是添加的连接个数
     virtual int Accept() = 0;
 
     //创建connectObj 添加到map集合中
     bool CreateConnectObj(SOCKET socket);
+
 };
 #endif

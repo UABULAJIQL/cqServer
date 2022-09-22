@@ -3,9 +3,9 @@
 
 src/CMakeFiles/main.dir/main.cpp.o: /home/cq/Projects/cqServer/src/main.cpp \
   /usr/include/stdc-predef.h \
-  /home/cq/Projects/cqServer/lib/epoll/epollClient.h \
+  /home/cq/Projects/cqServer/lib/network/epoll/epollClient.h \
   /home/cq/Projects/cqServer/lib/network/connectObj.h \
-  /home/cq/Projects/cqServer/lib/network/disposable.h \
+  /home/cq/Projects/cqServer/lib/disposable.h \
   /home/cq/Projects/cqServer/lib/network/networkConnector.h \
   /home/cq/Projects/cqServer/lib/network/network.h \
   /usr/include/c++/9/iostream \
@@ -212,7 +212,7 @@ src/CMakeFiles/main.dir/main.cpp.o: /home/cq/Projects/cqServer/src/main.cpp \
   /usr/include/netinet/tcp.h \
   /usr/include/x86_64-linux-gnu/sys/epoll.h \
   /usr/include/x86_64-linux-gnu/bits/epoll.h \
-  /home/cq/Projects/cqServer/lib/epoll/epollServer.h \
+  /home/cq/Projects/cqServer/lib/network/epoll/epollServer.h \
   /home/cq/Projects/cqServer/lib/network/networkListen.h \
   /usr/include/c++/9/map \
   /usr/include/c++/9/bits/stl_tree.h \
@@ -226,13 +226,9 @@ src/CMakeFiles/main.dir/main.cpp.o: /home/cq/Projects/cqServer/src/main.cpp \
   /usr/include/c++/9/bits/invoke.h \
   /usr/include/c++/9/bits/stl_multimap.h \
   /usr/include/c++/9/bits/erase_if.h \
-  /home/cq/Projects/cqServer/lib/network/packet.h \
-  /home/cq/Projects/cqServer/lib/network/buffer.h
+  /home/cq/Projects/cqServer/lib/packet/packet.h \
+  /home/cq/Projects/cqServer/lib/buffer/buffer.h
 
-
-/home/cq/Projects/cqServer/lib/network/buffer.h:
-
-/home/cq/Projects/cqServer/lib/network/packet.h:
 
 /usr/include/c++/9/bits/erase_if.h:
 
@@ -254,7 +250,7 @@ src/CMakeFiles/main.dir/main.cpp.o: /home/cq/Projects/cqServer/src/main.cpp \
 
 /home/cq/Projects/cqServer/lib/network/networkListen.h:
 
-/home/cq/Projects/cqServer/lib/epoll/epollServer.h:
+/home/cq/Projects/cqServer/lib/network/epoll/epollServer.h:
 
 /usr/include/x86_64-linux-gnu/bits/epoll.h:
 
@@ -292,6 +288,14 @@ src/CMakeFiles/main.dir/main.cpp.o: /home/cq/Projects/cqServer/src/main.cpp \
 
 /usr/include/endian.h:
 
+/usr/include/c++/9/bits/uses_allocator.h:
+
+/usr/include/x86_64-linux-gnu/c++/9/bits/gthr-default.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/9/include/stdint.h:
+
+/usr/include/x86_64-linux-gnu/bits/pthreadtypes.h:
+
 /usr/include/locale.h:
 
 /usr/include/c++/9/bits/ios_base.h:
@@ -307,6 +311,8 @@ src/CMakeFiles/main.dir/main.cpp.o: /home/cq/Projects/cqServer/src/main.cpp \
 /usr/include/x86_64-linux-gnu/bits/stdint-intn.h:
 
 /usr/include/c++/9/debug/debug.h:
+
+/home/cq/Projects/cqServer/lib/buffer/buffer.h:
 
 /usr/include/c++/9/ext/atomicity.h:
 
@@ -372,18 +378,6 @@ src/CMakeFiles/main.dir/main.cpp.o: /home/cq/Projects/cqServer/src/main.cpp \
 
 /usr/include/x86_64-linux-gnu/sys/cdefs.h:
 
-/usr/include/x86_64-linux-gnu/bits/typesizes.h:
-
-/usr/include/x86_64-linux-gnu/gnu/stubs-64.h:
-
-/usr/include/x86_64-linux-gnu/sys/select.h:
-
-/usr/include/c++/9/bits/ptr_traits.h:
-
-/usr/include/x86_64-linux-gnu/c++/9/bits/atomic_word.h:
-
-/usr/include/x86_64-linux-gnu/bits/stdlib-float.h:
-
 /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h:
 
 /usr/include/c++/9/bits/exception.h:
@@ -398,6 +392,8 @@ src/CMakeFiles/main.dir/main.cpp.o: /home/cq/Projects/cqServer/src/main.cpp \
 
 /usr/include/pthread.h:
 
+/home/cq/Projects/cqServer/lib/disposable.h:
+
 /usr/include/c++/9/iosfwd:
 
 /usr/include/x86_64-linux-gnu/bits/types/FILE.h:
@@ -408,15 +404,23 @@ src/CMakeFiles/main.dir/main.cpp.o: /home/cq/Projects/cqServer/src/main.cpp \
 
 /usr/include/x86_64-linux-gnu/bits/string_fortified.h:
 
-/usr/include/c++/9/bits/uses_allocator.h:
+/usr/include/x86_64-linux-gnu/bits/typesizes.h:
 
-/usr/include/x86_64-linux-gnu/c++/9/bits/gthr-default.h:
+/usr/include/x86_64-linux-gnu/gnu/stubs-64.h:
 
-/usr/lib/gcc/x86_64-linux-gnu/9/include/stdint.h:
+/usr/include/x86_64-linux-gnu/sys/select.h:
 
-/usr/include/x86_64-linux-gnu/bits/pthreadtypes.h:
+/usr/include/c++/9/bits/ptr_traits.h:
 
-/usr/lib/gcc/x86_64-linux-gnu/9/include/stdarg.h:
+/usr/include/x86_64-linux-gnu/c++/9/bits/atomic_word.h:
+
+/usr/include/x86_64-linux-gnu/bits/stdlib-float.h:
+
+/home/cq/Projects/cqServer/lib/network/epoll/epollClient.h:
+
+/usr/include/x86_64-linux-gnu/c++/9/bits/error_constants.h:
+
+/usr/include/c++/9/bits/locale_facets.h:
 
 /usr/include/ctype.h:
 
@@ -428,21 +432,21 @@ src/CMakeFiles/main.dir/main.cpp.o: /home/cq/Projects/cqServer/src/main.cpp \
 
 /usr/include/c++/9/bits/exception_ptr.h:
 
-/home/cq/Projects/cqServer/lib/epoll/epollClient.h:
+/usr/include/x86_64-linux-gnu/bits/types/__locale_t.h:
 
 /usr/include/x86_64-linux-gnu/bits/cpu-set.h:
 
 /usr/include/c++/9/iostream:
+
+/usr/include/x86_64-linux-gnu/bits/stdio.h:
+
+/home/cq/Projects/cqServer/lib/network/networkConnector.h:
 
 /usr/include/linux/falloc.h:
 
 /usr/include/x86_64-linux-gnu/c++/9/bits/c++config.h:
 
 /usr/include/c++/9/streambuf:
-
-/usr/include/x86_64-linux-gnu/bits/stdio.h:
-
-/home/cq/Projects/cqServer/lib/network/networkConnector.h:
 
 /usr/include/c++/9/bits/postypes.h:
 
@@ -456,25 +460,25 @@ src/CMakeFiles/main.dir/main.cpp.o: /home/cq/Projects/cqServer/src/main.cpp \
 
 /usr/include/x86_64-linux-gnu/bits/types/sigset_t.h:
 
-/usr/include/x86_64-linux-gnu/bits/byteswap-16.h:
-
 /usr/include/c++/9/bits/streambuf.tcc:
 
-/home/cq/Projects/cqServer/lib/network/disposable.h:
+/usr/include/x86_64-linux-gnu/bits/byteswap-16.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/locale_t.h:
 
 /usr/include/x86_64-linux-gnu/bits/errno.h:
-
-/usr/include/stdlib.h:
-
-/usr/include/c++/9/bits/localefwd.h:
 
 /usr/include/c++/9/bits/cxxabi_init_exception.h:
 
 /usr/include/wchar.h:
 
 /usr/include/x86_64-linux-gnu/bits/libc-header-start.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/9/include/stdarg.h:
+
+/usr/include/c++/9/bits/localefwd.h:
+
+/usr/include/stdlib.h:
 
 /usr/include/asm-generic/sockios.h:
 
@@ -489,8 +493,6 @@ src/CMakeFiles/main.dir/main.cpp.o: /home/cq/Projects/cqServer/src/main.cpp \
 /usr/include/c++/9/ext/alloc_traits.h:
 
 /usr/include/netinet/in.h:
-
-/usr/include/x86_64-linux-gnu/bits/types/__locale_t.h:
 
 /usr/include/x86_64-linux-gnu/bits/wchar2.h:
 
@@ -626,15 +628,13 @@ src/CMakeFiles/main.dir/main.cpp.o: /home/cq/Projects/cqServer/src/main.cpp \
 
 /usr/include/c++/9/bits/locale_classes.tcc:
 
+/home/cq/Projects/cqServer/lib/packet/packet.h:
+
 /usr/include/c++/9/ext/numeric_traits.h:
 
 /usr/include/c++/9/cwctype:
 
 /usr/include/c++/9/system_error:
-
-/usr/include/x86_64-linux-gnu/c++/9/bits/error_constants.h:
-
-/usr/include/c++/9/bits/locale_facets.h:
 
 /usr/include/c++/9/bits/basic_ios.h:
 

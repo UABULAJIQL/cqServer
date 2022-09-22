@@ -28,7 +28,7 @@ bool Buffer::ExpansionBuffer() {
     }
 
     char *newBuffer = new char[_bufferSize + INCREMENTAL_SIZE];
-    ::memset(newBuffer, 0, (_bufferSize + INCREMENTAL_SIZE)); 
+    ::memset(newBuffer, 0, (_bufferSize + INCREMENTAL_SIZE));
     //数据不为空才移动数据
     if (!IsEmpty()) {
         ::memcpy(newBuffer, _buffer, UnavailableLength());
@@ -111,4 +111,9 @@ void Buffer::Clear() {
     ::memset(_buffer, 0, _bufferSize);
 }
 
-void Buffer::Dispose() { delete[] _buffer; }
+void Buffer::Dispose() {
+    if (_buffer != nullptr) {
+        delete[] _buffer;
+        _buffer = nullptr;
+    }
+}

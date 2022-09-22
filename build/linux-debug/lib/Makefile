@@ -130,101 +130,77 @@ mylib/fast:
 	cd /home/cq/Projects/cqServer/build/linux-debug && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/mylib.dir/build.make lib/CMakeFiles/mylib.dir/build
 .PHONY : mylib/fast
 
-epoll/epollClient.o: epoll/epollClient.cpp.o
-.PHONY : epoll/epollClient.o
+buffer/buffer.o: buffer/buffer.cpp.o
+.PHONY : buffer/buffer.o
 
 # target to build an object file
-epoll/epollClient.cpp.o:
-	cd /home/cq/Projects/cqServer/build/linux-debug && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/mylib.dir/build.make lib/CMakeFiles/mylib.dir/epoll/epollClient.cpp.o
-.PHONY : epoll/epollClient.cpp.o
+buffer/buffer.cpp.o:
+	cd /home/cq/Projects/cqServer/build/linux-debug && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/mylib.dir/build.make lib/CMakeFiles/mylib.dir/buffer/buffer.cpp.o
+.PHONY : buffer/buffer.cpp.o
 
-epoll/epollClient.i: epoll/epollClient.cpp.i
-.PHONY : epoll/epollClient.i
+buffer/buffer.i: buffer/buffer.cpp.i
+.PHONY : buffer/buffer.i
 
 # target to preprocess a source file
-epoll/epollClient.cpp.i:
-	cd /home/cq/Projects/cqServer/build/linux-debug && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/mylib.dir/build.make lib/CMakeFiles/mylib.dir/epoll/epollClient.cpp.i
-.PHONY : epoll/epollClient.cpp.i
+buffer/buffer.cpp.i:
+	cd /home/cq/Projects/cqServer/build/linux-debug && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/mylib.dir/build.make lib/CMakeFiles/mylib.dir/buffer/buffer.cpp.i
+.PHONY : buffer/buffer.cpp.i
 
-epoll/epollClient.s: epoll/epollClient.cpp.s
-.PHONY : epoll/epollClient.s
+buffer/buffer.s: buffer/buffer.cpp.s
+.PHONY : buffer/buffer.s
 
 # target to generate assembly for a file
-epoll/epollClient.cpp.s:
-	cd /home/cq/Projects/cqServer/build/linux-debug && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/mylib.dir/build.make lib/CMakeFiles/mylib.dir/epoll/epollClient.cpp.s
-.PHONY : epoll/epollClient.cpp.s
+buffer/buffer.cpp.s:
+	cd /home/cq/Projects/cqServer/build/linux-debug && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/mylib.dir/build.make lib/CMakeFiles/mylib.dir/buffer/buffer.cpp.s
+.PHONY : buffer/buffer.cpp.s
 
-epoll/epollServer.o: epoll/epollServer.cpp.o
-.PHONY : epoll/epollServer.o
+buffer/circularQueueBuffer.o: buffer/circularQueueBuffer.cpp.o
+.PHONY : buffer/circularQueueBuffer.o
 
 # target to build an object file
-epoll/epollServer.cpp.o:
-	cd /home/cq/Projects/cqServer/build/linux-debug && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/mylib.dir/build.make lib/CMakeFiles/mylib.dir/epoll/epollServer.cpp.o
-.PHONY : epoll/epollServer.cpp.o
+buffer/circularQueueBuffer.cpp.o:
+	cd /home/cq/Projects/cqServer/build/linux-debug && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/mylib.dir/build.make lib/CMakeFiles/mylib.dir/buffer/circularQueueBuffer.cpp.o
+.PHONY : buffer/circularQueueBuffer.cpp.o
 
-epoll/epollServer.i: epoll/epollServer.cpp.i
-.PHONY : epoll/epollServer.i
+buffer/circularQueueBuffer.i: buffer/circularQueueBuffer.cpp.i
+.PHONY : buffer/circularQueueBuffer.i
 
 # target to preprocess a source file
-epoll/epollServer.cpp.i:
-	cd /home/cq/Projects/cqServer/build/linux-debug && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/mylib.dir/build.make lib/CMakeFiles/mylib.dir/epoll/epollServer.cpp.i
-.PHONY : epoll/epollServer.cpp.i
+buffer/circularQueueBuffer.cpp.i:
+	cd /home/cq/Projects/cqServer/build/linux-debug && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/mylib.dir/build.make lib/CMakeFiles/mylib.dir/buffer/circularQueueBuffer.cpp.i
+.PHONY : buffer/circularQueueBuffer.cpp.i
 
-epoll/epollServer.s: epoll/epollServer.cpp.s
-.PHONY : epoll/epollServer.s
+buffer/circularQueueBuffer.s: buffer/circularQueueBuffer.cpp.s
+.PHONY : buffer/circularQueueBuffer.s
 
 # target to generate assembly for a file
-epoll/epollServer.cpp.s:
-	cd /home/cq/Projects/cqServer/build/linux-debug && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/mylib.dir/build.make lib/CMakeFiles/mylib.dir/epoll/epollServer.cpp.s
-.PHONY : epoll/epollServer.cpp.s
+buffer/circularQueueBuffer.cpp.s:
+	cd /home/cq/Projects/cqServer/build/linux-debug && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/mylib.dir/build.make lib/CMakeFiles/mylib.dir/buffer/circularQueueBuffer.cpp.s
+.PHONY : buffer/circularQueueBuffer.cpp.s
 
-network/buffer.o: network/buffer.cpp.o
-.PHONY : network/buffer.o
+buffer/networkBuffer.o: buffer/networkBuffer.cpp.o
+.PHONY : buffer/networkBuffer.o
 
 # target to build an object file
-network/buffer.cpp.o:
-	cd /home/cq/Projects/cqServer/build/linux-debug && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/mylib.dir/build.make lib/CMakeFiles/mylib.dir/network/buffer.cpp.o
-.PHONY : network/buffer.cpp.o
+buffer/networkBuffer.cpp.o:
+	cd /home/cq/Projects/cqServer/build/linux-debug && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/mylib.dir/build.make lib/CMakeFiles/mylib.dir/buffer/networkBuffer.cpp.o
+.PHONY : buffer/networkBuffer.cpp.o
 
-network/buffer.i: network/buffer.cpp.i
-.PHONY : network/buffer.i
-
-# target to preprocess a source file
-network/buffer.cpp.i:
-	cd /home/cq/Projects/cqServer/build/linux-debug && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/mylib.dir/build.make lib/CMakeFiles/mylib.dir/network/buffer.cpp.i
-.PHONY : network/buffer.cpp.i
-
-network/buffer.s: network/buffer.cpp.s
-.PHONY : network/buffer.s
-
-# target to generate assembly for a file
-network/buffer.cpp.s:
-	cd /home/cq/Projects/cqServer/build/linux-debug && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/mylib.dir/build.make lib/CMakeFiles/mylib.dir/network/buffer.cpp.s
-.PHONY : network/buffer.cpp.s
-
-network/circularQueueBuffer.o: network/circularQueueBuffer.cpp.o
-.PHONY : network/circularQueueBuffer.o
-
-# target to build an object file
-network/circularQueueBuffer.cpp.o:
-	cd /home/cq/Projects/cqServer/build/linux-debug && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/mylib.dir/build.make lib/CMakeFiles/mylib.dir/network/circularQueueBuffer.cpp.o
-.PHONY : network/circularQueueBuffer.cpp.o
-
-network/circularQueueBuffer.i: network/circularQueueBuffer.cpp.i
-.PHONY : network/circularQueueBuffer.i
+buffer/networkBuffer.i: buffer/networkBuffer.cpp.i
+.PHONY : buffer/networkBuffer.i
 
 # target to preprocess a source file
-network/circularQueueBuffer.cpp.i:
-	cd /home/cq/Projects/cqServer/build/linux-debug && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/mylib.dir/build.make lib/CMakeFiles/mylib.dir/network/circularQueueBuffer.cpp.i
-.PHONY : network/circularQueueBuffer.cpp.i
+buffer/networkBuffer.cpp.i:
+	cd /home/cq/Projects/cqServer/build/linux-debug && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/mylib.dir/build.make lib/CMakeFiles/mylib.dir/buffer/networkBuffer.cpp.i
+.PHONY : buffer/networkBuffer.cpp.i
 
-network/circularQueueBuffer.s: network/circularQueueBuffer.cpp.s
-.PHONY : network/circularQueueBuffer.s
+buffer/networkBuffer.s: buffer/networkBuffer.cpp.s
+.PHONY : buffer/networkBuffer.s
 
 # target to generate assembly for a file
-network/circularQueueBuffer.cpp.s:
-	cd /home/cq/Projects/cqServer/build/linux-debug && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/mylib.dir/build.make lib/CMakeFiles/mylib.dir/network/circularQueueBuffer.cpp.s
-.PHONY : network/circularQueueBuffer.cpp.s
+buffer/networkBuffer.cpp.s:
+	cd /home/cq/Projects/cqServer/build/linux-debug && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/mylib.dir/build.make lib/CMakeFiles/mylib.dir/buffer/networkBuffer.cpp.s
+.PHONY : buffer/networkBuffer.cpp.s
 
 network/connectObj.o: network/connectObj.cpp.o
 .PHONY : network/connectObj.o
@@ -250,6 +226,54 @@ network/connectObj.cpp.s:
 	cd /home/cq/Projects/cqServer/build/linux-debug && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/mylib.dir/build.make lib/CMakeFiles/mylib.dir/network/connectObj.cpp.s
 .PHONY : network/connectObj.cpp.s
 
+network/epoll/epollClient.o: network/epoll/epollClient.cpp.o
+.PHONY : network/epoll/epollClient.o
+
+# target to build an object file
+network/epoll/epollClient.cpp.o:
+	cd /home/cq/Projects/cqServer/build/linux-debug && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/mylib.dir/build.make lib/CMakeFiles/mylib.dir/network/epoll/epollClient.cpp.o
+.PHONY : network/epoll/epollClient.cpp.o
+
+network/epoll/epollClient.i: network/epoll/epollClient.cpp.i
+.PHONY : network/epoll/epollClient.i
+
+# target to preprocess a source file
+network/epoll/epollClient.cpp.i:
+	cd /home/cq/Projects/cqServer/build/linux-debug && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/mylib.dir/build.make lib/CMakeFiles/mylib.dir/network/epoll/epollClient.cpp.i
+.PHONY : network/epoll/epollClient.cpp.i
+
+network/epoll/epollClient.s: network/epoll/epollClient.cpp.s
+.PHONY : network/epoll/epollClient.s
+
+# target to generate assembly for a file
+network/epoll/epollClient.cpp.s:
+	cd /home/cq/Projects/cqServer/build/linux-debug && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/mylib.dir/build.make lib/CMakeFiles/mylib.dir/network/epoll/epollClient.cpp.s
+.PHONY : network/epoll/epollClient.cpp.s
+
+network/epoll/epollServer.o: network/epoll/epollServer.cpp.o
+.PHONY : network/epoll/epollServer.o
+
+# target to build an object file
+network/epoll/epollServer.cpp.o:
+	cd /home/cq/Projects/cqServer/build/linux-debug && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/mylib.dir/build.make lib/CMakeFiles/mylib.dir/network/epoll/epollServer.cpp.o
+.PHONY : network/epoll/epollServer.cpp.o
+
+network/epoll/epollServer.i: network/epoll/epollServer.cpp.i
+.PHONY : network/epoll/epollServer.i
+
+# target to preprocess a source file
+network/epoll/epollServer.cpp.i:
+	cd /home/cq/Projects/cqServer/build/linux-debug && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/mylib.dir/build.make lib/CMakeFiles/mylib.dir/network/epoll/epollServer.cpp.i
+.PHONY : network/epoll/epollServer.cpp.i
+
+network/epoll/epollServer.s: network/epoll/epollServer.cpp.s
+.PHONY : network/epoll/epollServer.s
+
+# target to generate assembly for a file
+network/epoll/epollServer.cpp.s:
+	cd /home/cq/Projects/cqServer/build/linux-debug && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/mylib.dir/build.make lib/CMakeFiles/mylib.dir/network/epoll/epollServer.cpp.s
+.PHONY : network/epoll/epollServer.cpp.s
+
 network/network.o: network/network.cpp.o
 .PHONY : network/network.o
 
@@ -273,30 +297,6 @@ network/network.s: network/network.cpp.s
 network/network.cpp.s:
 	cd /home/cq/Projects/cqServer/build/linux-debug && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/mylib.dir/build.make lib/CMakeFiles/mylib.dir/network/network.cpp.s
 .PHONY : network/network.cpp.s
-
-network/networkBuffer.o: network/networkBuffer.cpp.o
-.PHONY : network/networkBuffer.o
-
-# target to build an object file
-network/networkBuffer.cpp.o:
-	cd /home/cq/Projects/cqServer/build/linux-debug && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/mylib.dir/build.make lib/CMakeFiles/mylib.dir/network/networkBuffer.cpp.o
-.PHONY : network/networkBuffer.cpp.o
-
-network/networkBuffer.i: network/networkBuffer.cpp.i
-.PHONY : network/networkBuffer.i
-
-# target to preprocess a source file
-network/networkBuffer.cpp.i:
-	cd /home/cq/Projects/cqServer/build/linux-debug && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/mylib.dir/build.make lib/CMakeFiles/mylib.dir/network/networkBuffer.cpp.i
-.PHONY : network/networkBuffer.cpp.i
-
-network/networkBuffer.s: network/networkBuffer.cpp.s
-.PHONY : network/networkBuffer.s
-
-# target to generate assembly for a file
-network/networkBuffer.cpp.s:
-	cd /home/cq/Projects/cqServer/build/linux-debug && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/mylib.dir/build.make lib/CMakeFiles/mylib.dir/network/networkBuffer.cpp.s
-.PHONY : network/networkBuffer.cpp.s
 
 network/networkConnector.o: network/networkConnector.cpp.o
 .PHONY : network/networkConnector.o
@@ -346,29 +346,29 @@ network/networkListen.cpp.s:
 	cd /home/cq/Projects/cqServer/build/linux-debug && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/mylib.dir/build.make lib/CMakeFiles/mylib.dir/network/networkListen.cpp.s
 .PHONY : network/networkListen.cpp.s
 
-network/packet.o: network/packet.cpp.o
-.PHONY : network/packet.o
+packet/packet.o: packet/packet.cpp.o
+.PHONY : packet/packet.o
 
 # target to build an object file
-network/packet.cpp.o:
-	cd /home/cq/Projects/cqServer/build/linux-debug && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/mylib.dir/build.make lib/CMakeFiles/mylib.dir/network/packet.cpp.o
-.PHONY : network/packet.cpp.o
+packet/packet.cpp.o:
+	cd /home/cq/Projects/cqServer/build/linux-debug && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/mylib.dir/build.make lib/CMakeFiles/mylib.dir/packet/packet.cpp.o
+.PHONY : packet/packet.cpp.o
 
-network/packet.i: network/packet.cpp.i
-.PHONY : network/packet.i
+packet/packet.i: packet/packet.cpp.i
+.PHONY : packet/packet.i
 
 # target to preprocess a source file
-network/packet.cpp.i:
-	cd /home/cq/Projects/cqServer/build/linux-debug && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/mylib.dir/build.make lib/CMakeFiles/mylib.dir/network/packet.cpp.i
-.PHONY : network/packet.cpp.i
+packet/packet.cpp.i:
+	cd /home/cq/Projects/cqServer/build/linux-debug && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/mylib.dir/build.make lib/CMakeFiles/mylib.dir/packet/packet.cpp.i
+.PHONY : packet/packet.cpp.i
 
-network/packet.s: network/packet.cpp.s
-.PHONY : network/packet.s
+packet/packet.s: packet/packet.cpp.s
+.PHONY : packet/packet.s
 
 # target to generate assembly for a file
-network/packet.cpp.s:
-	cd /home/cq/Projects/cqServer/build/linux-debug && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/mylib.dir/build.make lib/CMakeFiles/mylib.dir/network/packet.cpp.s
-.PHONY : network/packet.cpp.s
+packet/packet.cpp.s:
+	cd /home/cq/Projects/cqServer/build/linux-debug && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/mylib.dir/build.make lib/CMakeFiles/mylib.dir/packet/packet.cpp.s
+.PHONY : packet/packet.cpp.s
 
 # Help Target
 help:
@@ -379,36 +379,36 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... mylib"
-	@echo "... epoll/epollClient.o"
-	@echo "... epoll/epollClient.i"
-	@echo "... epoll/epollClient.s"
-	@echo "... epoll/epollServer.o"
-	@echo "... epoll/epollServer.i"
-	@echo "... epoll/epollServer.s"
-	@echo "... network/buffer.o"
-	@echo "... network/buffer.i"
-	@echo "... network/buffer.s"
-	@echo "... network/circularQueueBuffer.o"
-	@echo "... network/circularQueueBuffer.i"
-	@echo "... network/circularQueueBuffer.s"
+	@echo "... buffer/buffer.o"
+	@echo "... buffer/buffer.i"
+	@echo "... buffer/buffer.s"
+	@echo "... buffer/circularQueueBuffer.o"
+	@echo "... buffer/circularQueueBuffer.i"
+	@echo "... buffer/circularQueueBuffer.s"
+	@echo "... buffer/networkBuffer.o"
+	@echo "... buffer/networkBuffer.i"
+	@echo "... buffer/networkBuffer.s"
 	@echo "... network/connectObj.o"
 	@echo "... network/connectObj.i"
 	@echo "... network/connectObj.s"
+	@echo "... network/epoll/epollClient.o"
+	@echo "... network/epoll/epollClient.i"
+	@echo "... network/epoll/epollClient.s"
+	@echo "... network/epoll/epollServer.o"
+	@echo "... network/epoll/epollServer.i"
+	@echo "... network/epoll/epollServer.s"
 	@echo "... network/network.o"
 	@echo "... network/network.i"
 	@echo "... network/network.s"
-	@echo "... network/networkBuffer.o"
-	@echo "... network/networkBuffer.i"
-	@echo "... network/networkBuffer.s"
 	@echo "... network/networkConnector.o"
 	@echo "... network/networkConnector.i"
 	@echo "... network/networkConnector.s"
 	@echo "... network/networkListen.o"
 	@echo "... network/networkListen.i"
 	@echo "... network/networkListen.s"
-	@echo "... network/packet.o"
-	@echo "... network/packet.i"
-	@echo "... network/packet.s"
+	@echo "... packet/packet.o"
+	@echo "... packet/packet.i"
+	@echo "... packet/packet.s"
 .PHONY : help
 
 

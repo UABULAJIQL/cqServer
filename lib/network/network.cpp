@@ -8,16 +8,6 @@ Network::Network() {
 }
 
 void Network::Dispose() {
-    //释放map集合
-    /* auto iter = _connects.begin();
-       while (iter != _connects.end()) {
-       iter->second->Dispose();
-       delete iter->second;
-       ++iter;
-       }
-       _connects.clear();
-       */
-    //关闭文件描述符
     close(_socket);
     _socket = -1;
 }

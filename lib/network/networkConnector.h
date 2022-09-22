@@ -29,6 +29,8 @@ class NetworkConnector : public Network {
 
         //有虚函数 所以要有虚析构
         virtual ~NetworkConnector() = default;
+
+        void Dispose() override;
 };
 
 #endif

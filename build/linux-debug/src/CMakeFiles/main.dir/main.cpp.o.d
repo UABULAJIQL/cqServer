@@ -1,8 +1,8 @@
 src/CMakeFiles/main.dir/main.cpp.o: \
  /home/cq/Projects/cqServer/src/main.cpp /usr/include/stdc-predef.h \
- /home/cq/Projects/cqServer/lib/epoll/epollClient.h \
+ /home/cq/Projects/cqServer/lib/network/epoll/epollClient.h \
  /home/cq/Projects/cqServer/lib/network/connectObj.h \
- /home/cq/Projects/cqServer/lib/network/disposable.h \
+ /home/cq/Projects/cqServer/lib/disposable.h \
  /home/cq/Projects/cqServer/lib/network/networkConnector.h \
  /home/cq/Projects/cqServer/lib/network/network.h \
  /usr/include/c++/9/iostream \
@@ -168,7 +168,7 @@ src/CMakeFiles/main.dir/main.cpp.o: \
  /usr/include/x86_64-linux-gnu/bits/in.h /usr/include/netinet/tcp.h \
  /usr/include/x86_64-linux-gnu/sys/epoll.h \
  /usr/include/x86_64-linux-gnu/bits/epoll.h \
- /home/cq/Projects/cqServer/lib/epoll/epollServer.h \
+ /home/cq/Projects/cqServer/lib/network/epoll/epollServer.h \
  /home/cq/Projects/cqServer/lib/network/networkListen.h \
  /usr/include/c++/9/map /usr/include/c++/9/bits/stl_tree.h \
  /usr/include/c++/9/ext/aligned_buffer.h \
@@ -177,5 +177,5 @@ src/CMakeFiles/main.dir/main.cpp.o: \
  /usr/include/c++/9/array /usr/include/c++/9/bits/uses_allocator.h \
  /usr/include/c++/9/bits/invoke.h /usr/include/c++/9/bits/stl_multimap.h \
  /usr/include/c++/9/bits/erase_if.h \
- /home/cq/Projects/cqServer/lib/network/packet.h \
- /home/cq/Projects/cqServer/lib/network/buffer.h
+ /home/cq/Projects/cqServer/lib/packet/packet.h \
+ /home/cq/Projects/cqServer/lib/buffer/buffer.h

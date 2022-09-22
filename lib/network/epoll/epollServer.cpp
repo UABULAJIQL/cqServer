@@ -1,8 +1,8 @@
 #include "epollServer.h"
 #include "network/connectObj.h"
 
-#include "network/networkBuffer.h" //暂时
-#include "network/packet.h"        //暂时
+#include "buffer/networkBuffer.h" //暂时
+#include "packet/packet.h"        //暂时
 
 bool EpollServer::Update() {
 
@@ -87,6 +87,7 @@ bool EpollServer::Update() {
                 DeleteEventEpoll(_epfd, connectsOne->first);
             }
 
+            //接收到数据输出 测试 暂时
             if (connectsOne->second != nullptr)
                 while (connectsOne->second->HasRecvData()) {
                     Packet *temp = connectsOne->second->GetRecvNetworkBuffer()

@@ -4,8 +4,9 @@
 
 class Packet;
 
-const unsigned int RECVBUF_DEFAULT_SIZE = 64;
-const unsigned int SENDBUF_DEFAULT_SIZE = 64;
+//默认大小1kb
+const unsigned int RECVBUF_DEFAULT_SIZE = 1024;
+const unsigned int SENDBUF_DEFAULT_SIZE = 1024;
 //小测 ok
 
 //接收

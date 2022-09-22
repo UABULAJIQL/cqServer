@@ -17,14 +17,13 @@ bool NetworkListen::Listen(int prot, std::string ip = "") {
 
     si.sin_port = htons(prot);
 
-    int result;
-    result = bind(_socket, (struct sockaddr *)&si, sizeof(si));
-    if (result == -1)
+    int rs = bind(_socket, (struct sockaddr *)&si, sizeof(si));
+    if (rs == -1)
         perror("错误 bind\n");
 
     //设置监听
-    result = listen(_socket, 99);
-    if (result == -1)
+    rs = listen(_socket, 99);
+    if (rs == -1)
         perror("错误 listne\n");
 
     //设置端口复用解除文件描述符的阻塞
@@ -43,4 +42,19 @@ bool NetworkListen::CreateConnectObj(SOCKET socket) {
 
     //这个返回值再说----------
     return false;
+}
+
+void NetworkListen::Dispose() {
+    Network::Dispose();
+    for (auto bIter = _connects.begin(), eIter = _connects.end();
+            bIter != eIter; ++bIter) {
+
+        bIter->second->Dispose();
+
+        if (bIter->second != nullptr) {
+            delete bIter->second;
+            bIter->second = nullptr;
+        }
+    }
+    _connects.clear();
 }

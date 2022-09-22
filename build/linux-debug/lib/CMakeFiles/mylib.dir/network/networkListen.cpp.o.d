@@ -3,8 +3,7 @@ lib/CMakeFiles/mylib.dir/network/networkListen.cpp.o: \
  /usr/include/stdc-predef.h \
  /home/cq/Projects/cqServer/lib/network/networkListen.h \
  /home/cq/Projects/cqServer/lib/network/network.h \
- /home/cq/Projects/cqServer/lib/network/disposable.h \
- /usr/include/c++/9/iostream \
+ /home/cq/Projects/cqServer/lib/disposable.h /usr/include/c++/9/iostream \
  /usr/include/x86_64-linux-gnu/c++/9/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/9/bits/os_defines.h \
  /usr/include/features.h /usr/include/x86_64-linux-gnu/sys/cdefs.h \

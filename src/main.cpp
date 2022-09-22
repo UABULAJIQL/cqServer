@@ -1,6 +1,6 @@
-#include "epoll/epollClient.h"
-#include "epoll/epollServer.h"
-#include "network/packet.h"
+#include "network/epoll/epollClient.h"
+#include "network/epoll/epollServer.h"
+#include "packet/packet.h"
 #include <iostream>
 
 void EpollServerTest() {

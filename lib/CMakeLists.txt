@@ -2,12 +2,15 @@
 include_directories(${PROJECT_SOURCE_DIR}/lib)
 
 #多个源代码文件名放入到一个变量中
-aux_source_directory(./ lib_name0)#没有这个本目录下好像编译会卡住不通过
-aux_source_directory(./network lib_name1)
-aux_source_directory(./epoll lib_name2)
+aux_source_directory(./ _lib)#没有这个本目录下好像编译会卡住不通过
+aux_source_directory(./network _network)
+aux_source_directory(./network/epoll _epoll)
+aux_source_directory(./buffer _buffer)
+aux_source_directory(./packet _packet)
+
 
 #将多个文件文件字符串拼接
-set(lib_name ${lib_name0} ${lib_name1} ${lib_name2})
+set(_libs ${_lib} ${_network} ${_epoll} ${_buffer} ${_packet})
 
 #查看输出信息
 #message(${lib_name})
@@ -16,5 +19,5 @@ set(lib_name ${lib_name0} ${lib_name1} ${lib_name2})
 set(LIBRARY_OUTPUT_PATH ${PROJECT_BINARY_DIR}/lib)
 
 #创建一个静态库Mylib
-add_library(mylib STATIC ${lib_name})
+add_library(mylib STATIC ${_libs})
 
