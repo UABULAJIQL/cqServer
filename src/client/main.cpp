@@ -6,7 +6,7 @@ using namespace std;
 
 int main(int argc, char *argv[]) {
     EpollClient e;
-    e.Connect("127.0.0.1", 4663);
+    e.Connect("127.0.0.1", 4399);
 
     if (e.IsConnected())
         std::cout << "连接成功" << std::endl;
