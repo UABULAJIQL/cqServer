@@ -4,6 +4,12 @@ cmake_minimum_required(VERSION 3.24.0)
 #定义项目名称
 project(ProjectName)
 
+#执行生成protobuf文件
+execute_process(
+    COMMAND protoc --cpp_out=../lib/packet/protobuf/ msg.proto
+    WORKING_DIRECTORY ./protobuf
+    )
+
 #编译参数
 add_compile_options(-Wall -std=c++11 -O3)
 

@@ -1,0 +1,8 @@
+syntax = "proto3";
+
+package Proto;
+
+message TsetMsg{
+    string msg = 1;
+    int32 index = 2;
+}
