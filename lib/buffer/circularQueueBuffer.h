@@ -23,9 +23,8 @@ class CircularQueueBuffer : public Buffer {
         //获取数据并且出队数据
         bool GetData(char *data, unsigned int size) override;
 
-    protected:
         //扩容
-        bool ExpansionBuffer() override;
+        bool ExpansionBuffer(unsigned int size = INCREMENTAL_SIZE) override;
 };
 
 #endif

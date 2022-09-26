@@ -6,9 +6,9 @@
 //默认_begin都是从0开始的顺序表
 //小测试ok
 
-//最大容量1kb
-const unsigned int MAX_SIZE = 1024;
-//扩容增量
+//最大容量10kb
+const unsigned int MAX_SIZE = 1024 * 10;
+//默认扩容增量
 const unsigned int INCREMENTAL_SIZE = 8;
 
 //传输的数据长度类型
@@ -43,8 +43,8 @@ class Buffer : public IDisposable {
         //判满
         bool IsFull() const;
 
-        //扩容重新分配空间
-        virtual bool ExpansionBuffer();
+        //扩容
+        virtual bool ExpansionBuffer(unsigned int size = INCREMENTAL_SIZE);
 
         //添加数据
         virtual bool AddData(const char *data, unsigned int size);

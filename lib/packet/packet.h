@@ -2,6 +2,7 @@
 #define _PACKET_H
 #include "buffer/buffer.h"
 
+//这个东西非常重要 还不太理解到时候一点要好好研究一下 不搞一下接收的数据会出乱
 #pragma pack(push)
 #pragma pack(4)
 

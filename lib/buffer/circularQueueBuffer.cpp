@@ -18,7 +18,7 @@ unsigned int CircularQueueBuffer::AvailableLength() const {
         return _bufferSize;
 }
 
-bool CircularQueueBuffer::ExpansionBuffer() {
+bool CircularQueueBuffer::ExpansionBuffer(unsigned int size) {
 
     if (_bufferSize >= MAX_SIZE) {
         std::cout << "超出最大大小 扩容失败" << std::endl;
@@ -26,13 +26,13 @@ bool CircularQueueBuffer::ExpansionBuffer() {
     }
 
     //开辟新buffer空间
-    char *newBuffer = new char[_bufferSize + INCREMENTAL_SIZE];
+    char *newBuffer = new char[_bufferSize + size];
     //清空垃圾数据
-    ::memset(newBuffer, 0, _bufferSize + INCREMENTAL_SIZE);
+    ::memset(newBuffer, 0, _bufferSize + size);
 
     //起始下标在尾部下标左边
     if (_beginIndex < _endIndex) {
-        std::cout << "起始下标在尾部下标左边" << std::endl;
+        // std::cout << "起始下标在尾部下标左边" << std::endl;
         unsigned int dataLength = _endIndex - _beginIndex + 1;
 
         ::memcpy(newBuffer, _buffer + _beginIndex, dataLength);
@@ -42,7 +42,7 @@ bool CircularQueueBuffer::ExpansionBuffer() {
 
         //起始下标在尾部下标右边
     } else if (_beginIndex > _endIndex) {
-        std::cout << "起始下标在尾部下标左边" << std::endl;
+        // std::cout << "起始下标在尾部下标右边" << std::endl;
         unsigned int rightDataLength = _bufferSize - _beginIndex;
         unsigned int leftDataLenght = _endIndex + 1;
 
@@ -61,7 +61,7 @@ bool CircularQueueBuffer::ExpansionBuffer() {
     //更新起始下标
     _beginIndex = 0;
     //更新最大长度
-    _bufferSize += INCREMENTAL_SIZE;
+    _bufferSize += size;
 
     return true;
 }
@@ -77,13 +77,15 @@ bool CircularQueueBuffer::AddData(const char *data, unsigned int size) {
 
             break;
         } else {
-            //需要扩容----
+            
+            std::cout << "需要扩容 扩容前容量大小:" << this->_bufferSize << std::endl;
+            //需要扩容---- 为了安全加一
             //扩容失败也要退出
-            if (!ExpansionBuffer()) {
-                //扩容失败----
+            if (!ExpansionBuffer(size - AvailableLength() + 1)) {
                 return false;
             }
             //扩容成功----
+            std::cout << "扩容成功 容量大小" << this->_bufferSize << std::endl;
 
             //有扩容
             whetherToExpand = true;
@@ -119,14 +121,17 @@ bool CircularQueueBuffer::AddData(const char *data, unsigned int size) {
 
 bool CircularQueueBuffer::GetData(char *data, unsigned int size) {
 
-    if (data == nullptr)
+    if (data == nullptr){
+        // std::cout << "要插入的数据地址为空" << std::endl;
         return false;
+    }
 
     //数据长度没有这么长
-    if (UnavailableLength() < size)
-        return false;
+    if (UnavailableLength() < size){
+        // std::cout << "剩余的数据没有那么长" << std::endl;
 
-    ::memset(data, 0, size);
+        return false;
+    }
 
     unsigned int rightDataLength = _bufferSize - _beginIndex;
     if (rightDataLength < size) {

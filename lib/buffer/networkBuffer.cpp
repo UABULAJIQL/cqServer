@@ -13,23 +13,38 @@ RecvNetworkBuffer::RecvNetworkBuffer()
     Packet *RecvNetworkBuffer::GetPacket() {
         // std::cout << "已用长度:" << this->UnavailableLength() << std::endl;
         //获取消息长度
+        //需要判断剩余的长度大小-----------===========吧========-------
         TotalSizeType totalSize = 0;
-        this->GetData((char *)&totalSize, sizeof(TotalSizeType));
+        auto rs = this->GetData((char *)&totalSize, sizeof(TotalSizeType));
+        if(!rs){
+            std::cout << "数据不够 长度" << std::endl;
+        }
+        // std::cout << "接收到消息总长度" << totalSize << std::endl;
 
         //获取包头
         PacketHead pHead;
-        this->GetData((char *)&pHead, sizeof(PacketHead));
+        rs = this->GetData((char *)&pHead, sizeof(PacketHead));
+        if(!rs){
+            std::cout << "数据不够 包头" << std::endl;
+        }
 
         //防止意外多开一个大小
         Packet *packet = new Packet(totalSize + 1);
         packet->SetMessgeId(pHead._msgId);
-        this->GetData(packet->GetBuffer(),
+
+        rs = this->GetData(packet->GetBuffer(),
                 totalSize - sizeof(TotalSizeType) - sizeof(PacketHead));
+
+        if(!rs){
+            std::cout << "数据不够 数据:"<<  totalSize - sizeof(TotalSizeType) - sizeof(PacketHead) << std::endl;
+            std::cout << "只有" << this->UnavailableLength() << std::endl;
+        }
 
         //这里原来好像错了
         packet->ChangeEndInedx(totalSize - sizeof(TotalSizeType) -
                 sizeof(PacketHead));
 
+        // std::cout << "packet用的长度" << packet->UnavailableLength() << std::endl;
         // std::cout << "已用长度:" << this->UnavailableLength() << std::endl;
         return packet;
     }
@@ -50,6 +65,7 @@ unsigned int RecvNetworkBuffer::GetBuffer(char *&buf) const {
             return _bufferSize - _endIndex;
     }
 }
+char *RecvNetworkBuffer::GetBuffer() const { return _buffer; }
 
 void RecvNetworkBuffer::ChangeEndIndex(int size) {
     _endIndex += size;
@@ -73,6 +89,7 @@ SendNetworkBuffer::SendNetworkBuffer()
         //总的数据长度
         TotalSizeType totalSize = sizeof(TotalSizeType) + sizeof(PacketHead) +
             packet->UnavailableLength();
+        // std::cout << "这里数据长度有问题吧:" << totalSize << std::endl;
 
         //----------------------------------
         //将长度添加进去
@@ -96,6 +113,7 @@ SendNetworkBuffer::SendNetworkBuffer()
     }
 
 unsigned int SendNetworkBuffer::GetBuffer(char *&buf) const {
+
     buf = _buffer + _beginIndex;
 
     if (_beginIndex < _endIndex)

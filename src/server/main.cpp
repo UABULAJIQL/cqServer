@@ -1,4 +1,3 @@
-// #include "network/epoll/epollServer.h"
 #include <iostream>
 
 #include "server.h"
@@ -8,21 +7,13 @@ bool isRun = true;
 void stop(int signo){isRun = false;}
 
 int main() {
-    /* EpollServer e;
-
-    e.Listen(4399, "");
-
-    while (1)
-        if (!e.Update())
-            break;
-
-    // EpollServer中epoll树释放
-    e.Dispose(); */
     signal(SIGINT, stop);
     Server server;
     if(!server.Listen(4399, "")){
         std::cout << "服务器启动失败" << std::endl;
         return 1;
+    }else{
+        std::cout << "服务器启动成功" << std::endl;
     }
 
     while(isRun){

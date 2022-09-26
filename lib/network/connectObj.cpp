@@ -10,10 +10,36 @@ ConnectObj::ConnectObj(Network *network, int socket)
 
 int ConnectObj::GetSocket() const { return _socket; }
 
+//这里真的是操蛋 要判断是否满足一个packet
 bool ConnectObj::HasRecvData() const {
 
-    if (_recvBuf->UnavailableLength() > 0)
+    unsigned short totalSizeTypeSize = sizeof(TotalSizeType);
+
+    if (_recvBuf->UnavailableLength() <= totalSizeTypeSize)
+        return false;
+
+    unsigned int rightSize = 0;
+    if (_recvBuf->GetEndIndex() < _recvBuf->GetBeginIndex())
+        rightSize = _recvBuf->GetBufferSize() - _recvBuf->GetBeginIndex();
+    else if (_recvBuf->GetEndIndex() > _recvBuf->GetBeginIndex())
+        rightSize = _recvBuf->GetEndIndex() - _recvBuf->GetBeginIndex();
+
+    //数据包总长度
+    unsigned short totalSize = 0;
+    char *beginBuffer = _recvBuf->GetBuffer() + _recvBuf->GetBeginIndex();
+
+    if (rightSize >= totalSizeTypeSize) {
+        ::memcpy(&totalSize, beginBuffer, totalSizeTypeSize);
+    } else {
+        ::memcpy(&totalSize, beginBuffer, rightSize);
+        ::memcpy(&totalSize + rightSize, _recvBuf->GetBuffer(),
+                totalSizeTypeSize - rightSize);
+    }
+
+    if (_recvBuf->UnavailableLength() >= totalSize) {
+        // std::cout << "够" << totalSize << "啊！！！！" << std::endl;
         return true;
+    }
 
     return false;
 }
@@ -33,10 +59,18 @@ bool ConnectObj::Recv() const {
     int size = 0;
 
     while (true) {
+
+        //在这个地方扩容
+        if (_recvBuf->AvailableLength() < sizeof(TotalSizeType)) {
+            if (!_recvBuf->ExpansionBuffer()) {
+                std::cout << "接收扩容失败" << std::endl;
+            } else {
+                std::cout << "接收扩容成功" << std::endl;
+            }
+        }
+
         len = _recvBuf->GetBuffer(dataTemp);
-        // std::cout << "是不是这里阻塞了" << std::endl;
         size = ::recv(_socket, dataTemp, len, 0);
-        // std::cout << "果然是" << std::endl;
 
         // std::cout << "剩余空间大小" << len << std::endl;
 
@@ -61,6 +95,9 @@ bool ConnectObj::Recv() const {
     }
 }
 
+// int totalSize = 0;
+// int msgNum = 0;
+
 bool ConnectObj::Send() const {
     char *dataTemp = nullptr;
     int len;
@@ -76,7 +113,11 @@ bool ConnectObj::Send() const {
         size = ::send(_socket, dataTemp, len, 0);
 
         if (size > 0) {
-            // std::cout << "发送了消息" << std::endl;
+            // totalSize += size;
+            // ++msgNum;
+            // std::cout << "发送了" << totalSize << "长度的消息 这是第" <<
+            // msgNum
+            //     << "条消息" << std::endl;
             _sendBuf->ChangeBeginIndex(size);
             //下帧送达
             if (size < len) {
@@ -94,8 +135,14 @@ bool ConnectObj::Send() const {
     }
 }
 
-RecvNetworkBuffer *ConnectObj::GetRecvNetworkBuffer() const { return _recvBuf; }
-SendNetworkBuffer *ConnectObj::GetSendNetworkBuffer() const { return _sendBuf; }
+bool ConnectObj::AddPacket(Packet *packet) {
+    return _sendBuf->AddPacket(packet);
+}
+Packet *ConnectObj::GetPacket() { return _recvBuf->GetPacket(); }
+
+// RecvNetworkBuffer *ConnectObj::GetRecvNetworkBuffer() const { return
+// _recvBuf; } SendNetworkBuffer *ConnectObj::GetSendNetworkBuffer() const {
+// return _sendBuf; }
 
 void ConnectObj::Dispose() {
     _recvBuf->Dispose();

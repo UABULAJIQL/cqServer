@@ -27,10 +27,10 @@ bool Client::Connect(std::string ip, int port) {
     return false;
 }
 void Client::DataHandler() {
-    if (_isCompleted){
+    if (_isCompleted) {
         return;
     }
-    if (!IsConnected()){
+    if (!IsConnected()) {
         return;
     }
 
@@ -39,9 +39,11 @@ void Client::DataHandler() {
         if (_lastMsg.empty()) {
             //随机字符串
             _lastMsg = GenRandowm();
+
             Proto::TsetMsg protoMsg;
             protoMsg.set_index(_index);
             protoMsg.set_msg(_lastMsg.c_str());
+
             auto msgLen = protoMsg.ByteSizeLong();
 
             Packet packet(msgLen + 1);
@@ -51,11 +53,22 @@ void Client::DataHandler() {
             protoMsg.SerializePartialToArray(packet.GetBuffer(), msgLen);
             packet.ChangeEndInedx(msgLen);
 
-            std::cout << "发送消息:" << protoMsg.msg().c_str() << std::endl;
+            std::cout << _index << "发送消息:" << protoMsg.msg().c_str() << std::endl;
+                // << " protobuf长度:" << msgLen
+                // << " packet使用长度:" << packet.UnavailableLength()
+                // << std::endl;
 
             AddPacket(&packet);
+
+            // std::cout << "packet使用长度2:" << packet.UnavailableLength() << std::endl;
+            
+
+            /* //暂时先不接收消息
+            _lastMsg = "";
+            ++_index; */
         } else {
             if (GetConnectObj()->HasRecvData()) {
+
                 Packet *pPacket = GetPacket();
                 if (pPacket != nullptr) {
                     //解析
@@ -70,7 +83,9 @@ void Client::DataHandler() {
                     _lastMsg = "";
                     ++_index;
 
+                    pPacket->Dispose();
                     delete pPacket;
+                    pPacket = nullptr;
                 }
             }
         }

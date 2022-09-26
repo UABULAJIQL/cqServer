@@ -39,11 +39,11 @@ bool NetworkConnector::IsConnected() const {
 ConnectObj *NetworkConnector::GetConnectObj() const { return _connectObj; }
 
 bool NetworkConnector::AddPacket(Packet *p) {
-    return _connectObj->GetSendNetworkBuffer()->AddPacket(p);
+    return _connectObj->AddPacket(p);
 }
 
 Packet *NetworkConnector::GetPacket() {
-    return _connectObj->GetRecvNetworkBuffer()->GetPacket();
+    return _connectObj->GetPacket();
 }
 
 void NetworkConnector::Dispose(){

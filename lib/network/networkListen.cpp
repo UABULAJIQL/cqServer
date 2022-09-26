@@ -9,7 +9,7 @@ bool NetworkListen::Listen(int prot, std::string ip = "") {
     si.sin_family = AF_INET;
     if (ip == "") {
         si.sin_addr.s_addr = htonl(INADDR_ANY);
-        std::cout << "系统分配的IP" << std::endl;
+        // std::cout << "系统分配的IP" << std::endl;
     } else {
         //返回值---
         inet_pton(AF_INET, ip.c_str(), &si.sin_addr.s_addr);

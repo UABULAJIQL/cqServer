@@ -20,22 +20,23 @@ unsigned int Buffer::GetEndIndex() const { return _endIndex; }
 
 unsigned int Buffer::AvailableLength() const { return _bufferSize - _endIndex; }
 
-bool Buffer::ExpansionBuffer() {
+bool Buffer::ExpansionBuffer(unsigned int size) {
 
     if (_bufferSize >= MAX_SIZE) {
         std::cout << "超出最大大小 扩容失败" << std::endl;
         return false;
     }
 
-    char *newBuffer = new char[_bufferSize + INCREMENTAL_SIZE];
-    ::memset(newBuffer, 0, (_bufferSize + INCREMENTAL_SIZE));
+    char *newBuffer = new char[_bufferSize + size];
+    ::memset(newBuffer, 0, (_bufferSize + size));
+
     //数据不为空才移动数据
     if (!IsEmpty()) {
         ::memcpy(newBuffer, _buffer, UnavailableLength());
     }
     delete[] _buffer;
     _buffer = newBuffer;
-    _bufferSize += INCREMENTAL_SIZE;
+    _bufferSize += size;
 
     return true;
 }
@@ -65,7 +66,7 @@ bool Buffer::AddData(const char *data, unsigned int size) {
             //需要扩容
 
             //扩容失败 false
-            if (!ExpansionBuffer())
+            if (!ExpansionBuffer(size - AvailableLength() + 1))
                 return false;
         }
     }

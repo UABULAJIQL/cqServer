@@ -17,17 +17,21 @@ void Server::HandlerOne(ConnectObj *pConnectObj) {
     //接收消息
     while (pConnectObj->HasRecvData()) {
         //确实可以吧GetRecvNetworkBuffer移除，然后直接来一个GetPacket!!!!!还有之前的数据插入扩容问题要别忘记了！！！！！！
-        Packet *pPacket = pConnectObj->GetRecvNetworkBuffer()->GetPacket();
+        Packet *pPacket = pConnectObj->GetPacket();
         if (pPacket == nullptr)
             break;
-        //解析
+
+        // 解析
         Proto::TsetMsg protoMsg;
         protoMsg.ParsePartialFromArray(pPacket->GetBuffer(),
                 pPacket->UnavailableLength());
 
-        std::cout << "接收到消息" << protoMsg.msg().c_str() << std::endl;
+        // std::cout<< "解析:" << a << " 接收到消息:" << protoMsg.msg().c_str()
+        //     << " 消息长度:" << pPacket->UnavailableLength() << std::endl;
+        std::cout << " 接收到消息:" << protoMsg.msg().c_str() << std::endl;
 
-        pConnectObj->GetSendNetworkBuffer()->AddPacket(pPacket);
+        pConnectObj->AddPacket(pPacket);
+
         // std::cout << pConnectObj->GetSendNetworkBuffer()->UnavailableLength()
         // << std::endl; std::cout << pConnectObj->HasSendData() << std::endl;
 

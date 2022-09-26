@@ -2,10 +2,12 @@
 #define _CONNECTOBJ_H
 
 class Network;
+class Packet;
 class RecvNetworkBuffer;
 class SendNetworkBuffer;
 
 #include "disposable.h"
+
 
 class ConnectObj : IDisposable {
     protected:
@@ -28,9 +30,11 @@ class ConnectObj : IDisposable {
         //发送消息
         bool Send() const;
         //获取接收缓冲区
-        RecvNetworkBuffer *GetRecvNetworkBuffer() const;
+        // RecvNetworkBuffer *GetRecvNetworkBuffer() const;
         //获取发送缓冲区
-        SendNetworkBuffer *GetSendNetworkBuffer() const;
+        // SendNetworkBuffer *GetSendNetworkBuffer() const;
+        bool AddPacket(Packet* packet);
+        Packet* GetPacket();
 
         void Dispose() override;
 };
