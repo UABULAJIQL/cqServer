@@ -20,3 +20,4 @@ void Thread::Dispose() {
     if (_thread.joinable())
         _thread.join();
 }
+bool Thread::IsRun() const { return _isRun; }

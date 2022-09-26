@@ -14,7 +14,7 @@ class Thread : IDisposable {
         //帧
         virtual void Update() = 0;
 
-        bool IsRund() const;
+        bool IsRun() const;
 
         void Dispose() override;
 

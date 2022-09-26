@@ -1,6 +1,6 @@
 #include "connectObj.h"
-#include "network.h"
 #include "buffer/networkBuffer.h"
+#include "network.h"
 
 ConnectObj::ConnectObj(Network *network, int socket)
     : _socket(socket), _network(network) {
@@ -32,10 +32,11 @@ bool ConnectObj::Recv() const {
     unsigned int len = 0;
     int size = 0;
 
-
     while (true) {
         len = _recvBuf->GetBuffer(dataTemp);
+        // std::cout << "是不是这里阻塞了" << std::endl;
         size = ::recv(_socket, dataTemp, len, 0);
+        // std::cout << "果然是" << std::endl;
 
         // std::cout << "剩余空间大小" << len << std::endl;
 
@@ -49,7 +50,7 @@ bool ConnectObj::Recv() const {
         } else {
             //中断错误 || 发送缓冲区满了 ||
             //下次或许可以成功一般出现在非阻塞的操作
-            if (errno == EINTR || errno == EWOULDBLOCK || errno == EAGAIN){
+            if (errno == EINTR || errno == EWOULDBLOCK || errno == EAGAIN) {
                 // std::cout << "重新" << std::endl;
                 return true;
             }
@@ -58,8 +59,6 @@ bool ConnectObj::Recv() const {
             return false;
         }
     }
-
-
 }
 
 bool ConnectObj::Send() const {
@@ -68,16 +67,23 @@ bool ConnectObj::Send() const {
     int size;
     while (true) {
         len = _sendBuf->GetBuffer(dataTemp);
-        if (len == 0)
+        if (len == 0) {
+
+            // std::cout << "长度为0" << std::endl;
             return true;
+        }
 
         size = ::send(_socket, dataTemp, len, 0);
 
         if (size > 0) {
+            // std::cout << "发送了消息" << std::endl;
             _sendBuf->ChangeBeginIndex(size);
             //下帧送达
-            if (size < len)
+            if (size < len) {
+                std::cout << "下帧送达" << std::endl;
+
                 return true;
+            }
         }
 
         if (size == -1) {
@@ -95,11 +101,11 @@ void ConnectObj::Dispose() {
     _recvBuf->Dispose();
     _sendBuf->Dispose();
 
-    if(_recvBuf != nullptr){
+    if (_recvBuf != nullptr) {
         delete _recvBuf;
         _recvBuf = nullptr;
     }
-    if(_sendBuf != nullptr){
+    if (_sendBuf != nullptr) {
         delete _sendBuf;
         _sendBuf = nullptr;
     }
@@ -107,4 +113,3 @@ void ConnectObj::Dispose() {
     //这个可不是你可以释放的
     _network = nullptr;
 }
-

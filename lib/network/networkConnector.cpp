@@ -24,6 +24,9 @@ bool NetworkConnector::Connect(std::string ip, int port) {
         _connectObj = new ConnectObj(this, _socket);
     }
 
+    //设置非阻塞 已经被这个问题搞了两次了 服了
+    SetSocketOpt(_socket);
+
     return true;
 }
 

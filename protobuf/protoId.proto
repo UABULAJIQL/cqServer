@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+package Proto;
+
+enum MsgId {
+    None = 0;
+    SendData = 1;
+    Over = 2;
+}

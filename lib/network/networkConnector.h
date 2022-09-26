@@ -13,7 +13,7 @@ class NetworkConnector : public Network {
 
     public:
         //连接
-        bool Connect(std::string ip, int port);
+        virtual bool Connect(std::string ip, int port);
         //判断是否连接成功
         bool IsConnected() const;
         //获取connectObj

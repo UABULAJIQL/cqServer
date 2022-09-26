@@ -6,7 +6,7 @@ project(ProjectName)
 
 #执行生成protobuf文件
 execute_process(
-    COMMAND protoc --cpp_out=../lib/packet/protobuf/ msg.proto
+    COMMAND protoc --cpp_out=../lib/packet/protobuf/ msg.proto protoId.proto
     WORKING_DIRECTORY ./protobuf
     )
 

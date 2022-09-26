@@ -52,7 +52,9 @@ bool EpollClient::Update() {
 
             //接收事件
             if (_getEvent.events & EPOLLIN) {
+                // std::cout << "客户端接收到消息" << std::endl;
                 if (!_connectObj->Recv()) {
+                    // std::cout << "接收消息失败" << std::endl;
                     //释放cobj
                     _connectObj->Dispose();
                     if (_connectObj != nullptr) {
@@ -63,6 +65,7 @@ bool EpollClient::Update() {
                     //下树
                     epoll_ctl(_epfd, EPOLL_CTL_DEL, _socket, nullptr);
                 }
+                // std::cout << "接收消息成功" << std::endl;
                 break;
             }
 

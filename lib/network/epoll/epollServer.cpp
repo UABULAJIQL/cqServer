@@ -4,6 +4,8 @@
 #include "buffer/networkBuffer.h" //暂时
 #include "packet/packet.h"        //暂时
 
+EpollServer::EpollServer() { InitEpoll(); }
+
 bool EpollServer::Update() {
 
     _acceptOn = false;
@@ -13,6 +15,7 @@ bool EpollServer::Update() {
 
         //如果有待发送的数据那么添加OUT事件
         if (bIter->second->HasSendData()) {
+            // std::cout << "有发送的数据啊" << std::endl;
             ModifyEventEpoll(_epfd, bIter->first,
                     EPOLLIN | EPOLLOUT | EPOLLRDHUP);
         }
@@ -70,7 +73,7 @@ bool EpollServer::Update() {
 
         //接收事件
         if (_events[i].events & EPOLLIN) {
-            std::cout << "来数据了" << std::endl;
+            // std::cout << "来数据了" << std::endl;
 
             //如果接收失败
             if (!connectsOne->second->Recv()) {
@@ -87,16 +90,6 @@ bool EpollServer::Update() {
                 DeleteEventEpoll(_epfd, connectsOne->first);
             }
 
-            //接收到数据输出 测试 暂时
-            if (connectsOne->second != nullptr)
-                while (connectsOne->second->HasRecvData()) {
-                    Packet *temp = connectsOne->second->GetRecvNetworkBuffer()
-                        ->GetPacket();
-                    printf("服务器接收到了消息====%s\n", temp->GetBuffer());
-
-                    if (temp != nullptr)
-                        delete temp;
-                }
 
             continue;
         }
@@ -104,6 +97,7 @@ bool EpollServer::Update() {
         //发送事件
         if (_events[i].events & EPOLLOUT) {
 
+            // std::cout << "服务端发送消息" << std::endl;
             //发送
             connectsOne->second->Send();
 
@@ -141,4 +135,35 @@ int EpollServer::Accept() {
     }
 
     return acceptNum;
+}
+
+void EpollServer::InitEpoll() {
+    //初始设置最大可以同时接收的通知数
+    _epfd = epoll_create(EVENTS);
+
+    //先将监听文件描述符上树
+    //输入 输出 读端关闭
+    AddEventEpoll(_epfd, _socket, EPOLLIN | EPOLLOUT | EPOLLRDHUP);
+}
+
+void EpollServer::AddEventEpoll(int epfd, int fd, int events) {
+
+    struct epoll_event ev;
+    ev.events = events;
+    ev.data.ptr = nullptr;
+    ev.data.fd = fd;
+
+    epoll_ctl(epfd, EPOLL_CTL_ADD, fd, &ev);
+}
+void EpollServer::DeleteEventEpoll(int epfd, int fd) {
+    epoll_ctl(epfd, EPOLL_CTL_DEL, fd, NULL);
+}
+void EpollServer::ModifyEventEpoll(int epfd, int fd, int events) {
+
+    struct epoll_event ev;
+    ev.events = events;
+    ev.data.ptr = nullptr;
+    ev.data.fd = fd;
+
+    epoll_ctl(epfd, EPOLL_CTL_MOD, fd, &ev);
 }

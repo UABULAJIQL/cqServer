@@ -2,4 +2,4 @@ build
 .cache
 neovim.json
 compile_commands.json
-lib/packet/protobuf
+lib/packet/protobuf/*

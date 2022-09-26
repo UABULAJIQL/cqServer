@@ -11,5 +11,5 @@ aux_source_directory(./ files)
 add_executable(client ${files})
 
 #添加库文件
-target_link_libraries(client mylib pthread)
+target_link_libraries(client mylib pthread protobuf)
 # target_link_libraries(main boost_system pthread protobuf mysqlclient)

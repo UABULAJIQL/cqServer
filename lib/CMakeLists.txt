@@ -8,10 +8,11 @@ aux_source_directory(./network/epoll _epoll)
 aux_source_directory(./buffer _buffer)
 aux_source_directory(./packet _packet)
 aux_source_directory(./thread _thread)
+aux_source_directory(./packet/protobuf _protobuf)
 
 
 #将多个文件文件字符串拼接
-set(_libs ${_lib} ${_network} ${_epoll} ${_buffer} ${_packet} ${_thread})
+set(_libs ${_lib} ${_network} ${_epoll} ${_buffer} ${_packet} ${_thread} ${_protobuf})
 
 #查看输出信息
 #message(${lib_name})

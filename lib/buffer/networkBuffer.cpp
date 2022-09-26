@@ -56,6 +56,7 @@ void RecvNetworkBuffer::ChangeEndIndex(int size) {
     if (_endIndex == _bufferSize)
         _endIndex = 0;
 
+    // std::cout << "添加了数据 addData true" << std::endl;
     _addData = true; //添加了数据
 }
 
@@ -119,5 +120,6 @@ void SendNetworkBuffer::ChangeBeginIndex(int size) {
         _beginIndex = 0;
 
     //由于是移除消息所以 添加消息的标记要变成false
+    // std::cout << "减小数据 addData false" << std::endl;
     _addData = false;
 }
