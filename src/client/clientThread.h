@@ -1,6 +1,6 @@
 #ifndef _CLIENTTHREAD_H
 #define _CLIENTTHREAD_H
-#include "thread/thread.h"
+#include "./thread.h"
 class Client;
 class ClientThread : public Thread {
 
