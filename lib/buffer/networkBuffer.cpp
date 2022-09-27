@@ -51,7 +51,7 @@ RecvNetworkBuffer::RecvNetworkBuffer()
 
 unsigned int RecvNetworkBuffer::GetBuffer(char *&buf) const {
 
-    buf = _buffer + _endIndex;
+    buf = _pBuffer + _endIndex;
 
     if (_beginIndex > _endIndex)
         return _beginIndex - _endIndex;
@@ -65,7 +65,7 @@ unsigned int RecvNetworkBuffer::GetBuffer(char *&buf) const {
             return _bufferSize - _endIndex;
     }
 }
-char *RecvNetworkBuffer::GetBuffer() const { return _buffer; }
+char *RecvNetworkBuffer::GetBuffer() const { return _pBuffer; }
 
 void RecvNetworkBuffer::ChangeEndIndex(int size) {
     _endIndex += size;
@@ -114,7 +114,7 @@ SendNetworkBuffer::SendNetworkBuffer()
 
 unsigned int SendNetworkBuffer::GetBuffer(char *&buf) const {
 
-    buf = _buffer + _beginIndex;
+    buf = _pBuffer + _beginIndex;
 
     if (_beginIndex < _endIndex)
         return _endIndex - _beginIndex;

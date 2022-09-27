@@ -5,7 +5,7 @@
 Packet::Packet(unsigned int size) : Buffer(size) {}
 Packet::Packet() : Buffer(PACKET_DEFAULT_SIZE) {}
 
-char *Packet::GetBuffer() const { return _buffer; }
+char *Packet::GetBuffer() const { return _pBuffer; }
 
 void Packet::ChangeEndInedx(int size) { _endIndex += size; }
 

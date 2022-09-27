@@ -17,7 +17,7 @@ using TotalSizeType = unsigned short;
 class Buffer : public IDisposable {
     protected:
         //缓冲区
-        char *_buffer{nullptr};
+        char *_pBuffer{nullptr};
         //缓冲区总大小
         unsigned int _bufferSize{0};
         //数据起始位置

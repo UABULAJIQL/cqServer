@@ -3,8 +3,8 @@
 #include <iostream>
 
 Buffer::Buffer(unsigned int size) {
-    _buffer = new char[size];
-    ::memset(_buffer, 0, size);
+    _pBuffer = new char[size];
+    ::memset(_pBuffer, 0, size);
     _bufferSize = size;
 }
 
@@ -32,10 +32,10 @@ bool Buffer::ExpansionBuffer(unsigned int size) {
 
     //数据不为空才移动数据
     if (!IsEmpty()) {
-        ::memcpy(newBuffer, _buffer, UnavailableLength());
+        ::memcpy(newBuffer, _pBuffer, UnavailableLength());
     }
-    delete[] _buffer;
-    _buffer = newBuffer;
+    delete[] _pBuffer;
+    _pBuffer = newBuffer;
     _bufferSize += size;
 
     return true;
@@ -73,10 +73,10 @@ bool Buffer::AddData(const char *data, unsigned int size) {
 
     //如果数据为空 从起始下标开始添加数据
     if (IsEmpty()) {
-        ::memcpy(_buffer, data, size);
+        ::memcpy(_pBuffer, data, size);
         _endIndex = size;
     } else { //数据不为空 从尾部下标开始添加数据
-        ::memcpy(_buffer + _endIndex, data, size);
+        ::memcpy(_pBuffer + _endIndex, data, size);
         _endIndex += size;
     }
 
@@ -100,21 +100,21 @@ bool Buffer::Memcpy(char *destination, unsigned int originIndex,
     if (destination == nullptr)
         return false;
 
-    ::memcpy(destination, _buffer + originIndex, size);
+    ::memcpy(destination, _pBuffer + originIndex, size);
     //强迫症还是清空一下数据
-    ::memset(_buffer + originIndex, 0, size);
+    ::memset(_pBuffer + originIndex, 0, size);
     return true;
 }
 
 void Buffer::Clear() {
     _beginIndex = 0;
     _endIndex = 0;
-    ::memset(_buffer, 0, _bufferSize);
+    ::memset(_pBuffer, 0, _bufferSize);
 }
 
 void Buffer::Dispose() {
-    if (_buffer != nullptr) {
-        delete[] _buffer;
-        _buffer = nullptr;
+    if (_pBuffer != nullptr) {
+        delete[] _pBuffer;
+        _pBuffer = nullptr;
     }
 }

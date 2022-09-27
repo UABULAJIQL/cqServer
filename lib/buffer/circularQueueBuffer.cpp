@@ -35,7 +35,7 @@ bool CircularQueueBuffer::ExpansionBuffer(unsigned int size) {
         // std::cout << "起始下标在尾部下标左边" << std::endl;
         unsigned int dataLength = _endIndex - _beginIndex + 1;
 
-        ::memcpy(newBuffer, _buffer + _beginIndex, dataLength);
+        ::memcpy(newBuffer, _pBuffer + _beginIndex, dataLength);
 
         //更新尾部下标
         _endIndex = dataLength - 1;
@@ -46,18 +46,18 @@ bool CircularQueueBuffer::ExpansionBuffer(unsigned int size) {
         unsigned int rightDataLength = _bufferSize - _beginIndex;
         unsigned int leftDataLenght = _endIndex + 1;
 
-        ::memcpy(newBuffer, _buffer + _endIndex, rightDataLength);
-        ::memcpy(newBuffer + rightDataLength, _buffer, leftDataLenght);
+        ::memcpy(newBuffer, _pBuffer + _endIndex, rightDataLength);
+        ::memcpy(newBuffer + rightDataLength, _pBuffer, leftDataLenght);
 
         //更新尾部下标
         _endIndex = rightDataLength + leftDataLenght - 1;
     }
 
     //释放原来缓冲区
-    delete[] _buffer;
+    delete[] _pBuffer;
 
     //更新缓冲区
-    _buffer = newBuffer;
+    _pBuffer = newBuffer;
     //更新起始下标
     _beginIndex = 0;
     //更新最大长度
@@ -97,14 +97,14 @@ bool CircularQueueBuffer::AddData(const char *data, unsigned int size) {
 
         unsigned int rightSpaceLength = _bufferSize - _endIndex;
         //先将一部分数据存储到右边可用空间
-        ::memcpy(_buffer + _endIndex, data, rightSpaceLength);
+        ::memcpy(_pBuffer + _endIndex, data, rightSpaceLength);
 
-        ::memcpy(_buffer, data + rightSpaceLength, size - rightSpaceLength);
+        ::memcpy(_pBuffer, data + rightSpaceLength, size - rightSpaceLength);
         _endIndex = size - rightSpaceLength;
 
     } else { //直接塞到_endIndex后面
 
-        ::memcpy(_buffer + _endIndex, data, size);
+        ::memcpy(_pBuffer + _endIndex, data, size);
         _endIndex += size;
     }
 
