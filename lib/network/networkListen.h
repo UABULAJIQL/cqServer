@@ -13,7 +13,7 @@ class NetworkListen : public Network {
         bool Listen(int prot, std::string ip);
 
         //监听是请求
-        virtual bool Update() = 0;
+        // virtual bool Update() = 0;
 
         void Dispose() override;
 

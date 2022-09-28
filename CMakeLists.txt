@@ -15,7 +15,8 @@ add_compile_options(-Wall -std=c++11 -O3)
 
 #添加子目录
 add_subdirectory(./lib)
-add_subdirectory(./src/server)
-add_subdirectory(./src/client)
+# add_subdirectory(./src/server)
+# add_subdirectory(./src/client)
+add_subdirectory(./src/Login)
 
 

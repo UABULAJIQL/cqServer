@@ -11,7 +11,7 @@ class ThreadObject : public IDisposable {
         // 注册想要的协议协议
         virtual void RegisterMsgFunction() = 0;
         // 帧函数 更新数据
-        virtual void Update() = 0;
+        virtual bool Update() = 0;
 
         virtual ~ThreadObject() = default;
 

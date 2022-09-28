@@ -90,7 +90,6 @@ bool EpollServer::Update() {
                 DeleteEventEpoll(_epfd, connectsOne->first);
             }
 
-
             continue;
         }
 
@@ -167,3 +166,6 @@ void EpollServer::ModifyEventEpoll(int epfd, int fd, int events) {
 
     epoll_ctl(epfd, EPOLL_CTL_MOD, fd, &ev);
 }
+
+bool EpollServer::Init() { return true; }
+void EpollServer::RegisterMsgFunction() {}

@@ -1,3 +1,4 @@
+//线程管理类
 #include "threadMgr.h"
 #include "thread.h"
 #include "threadObject.h"
@@ -21,7 +22,7 @@ bool ThreadMgr::IsGameLoop() {
 void ThreadMgr::NewThread() {
     std::lock_guard<std::mutex> guard(_mutex);
     auto pThread = new Thread();
-    // _threads.emplace(pThread->GetSN(), pThread);
+    _threads.emplace(pThread->GetSN(), pThread);
     // _threads.insert(std::make_pair(pThread->GetSN(), pThread));
 }
 void ThreadMgr::AddObjToThread(ThreadObject *obj) {

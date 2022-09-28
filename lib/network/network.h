@@ -1,7 +1,8 @@
 #ifndef _NETWORK_H
 #define _NETWORK_H
 
-#include "tools/disposable.h"
+#include "thread/threadObject.h"
+
 #include <iostream>
 
 #include <errno.h>
@@ -23,7 +24,7 @@
 using SOCKET = int;
 
 class ConnectObj;
-class Network : public IDisposable {
+class Network : public ThreadObject {
     protected:
         //文件描述符
         SOCKET _socket = {-1};

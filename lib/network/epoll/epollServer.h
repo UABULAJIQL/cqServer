@@ -19,6 +19,11 @@ class EpollServer : public NetworkListen {
 
     public:
         EpollServer();
+
+        bool Init() override;
+        void RegisterMsgFunction() override;
+
+
         bool Update() override;
 
     protected:

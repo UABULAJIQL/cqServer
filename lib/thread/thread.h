@@ -2,15 +2,16 @@
 #define _THREAD_H
 
 #include "tools/disposable.h"
+#include "tools/snObj.h"
 
 #include <list>
-#include <thread>
 #include <mutex>
+#include <thread>
 
 class ThreadObject;
 
 //线程类 每个线程实例都管理一组 线程包裹类
-class Thread : IDisposable {
+class Thread : public IDisposable, public SnObject {
 
     public:
         Thread();
@@ -34,7 +35,7 @@ class Thread : IDisposable {
         //这个是公共变量所以需要锁
         std::list<ThreadObject *> _objlist;
 
-        std::list<ThreadObject*> _tempObjList;
+        std::list<ThreadObject *> _tempObjList;
         std::mutex _mutex;
 };
 
