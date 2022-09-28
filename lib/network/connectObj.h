@@ -6,7 +6,7 @@ class Packet;
 class RecvNetworkBuffer;
 class SendNetworkBuffer;
 
-#include "disposable.h"
+#include "tools/disposable.h"
 
 
 class ConnectObj : IDisposable {

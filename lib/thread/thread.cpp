@@ -18,8 +18,8 @@ bool Thread::Start() {
 }
 
 void Thread::Stop() {
-    //停止运行的时候 结束线程
-    if (!_isRun) {
+    //结束线程
+    if (_isRun) {
         _isRun = false;
         if (_thread.joinable())
             _thread.join();

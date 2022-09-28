@@ -3,6 +3,7 @@ include_directories(${PROJECT_SOURCE_DIR}/lib)
 
 #多个源代码文件名放入到一个变量中
 aux_source_directory(./ _lib)#没有这个本目录下好像编译会卡住不通过
+aux_source_directory(./tools _tools)
 aux_source_directory(./network _network)
 aux_source_directory(./network/epoll _epoll)
 aux_source_directory(./buffer _buffer)
@@ -12,7 +13,7 @@ aux_source_directory(./packet/protobuf _protobuf)
 
 
 #将多个文件文件字符串拼接
-set(_libs ${_lib} ${_network} ${_epoll} ${_buffer} ${_packet} ${_thread} ${_protobuf})
+set(_libs ${_lib} ${_tools} ${_network} ${_epoll} ${_buffer} ${_packet} ${_thread} ${_protobuf})
 
 #查看输出信息
 #message(${lib_name})

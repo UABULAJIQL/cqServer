@@ -1,7 +1,7 @@
 #ifndef _BUFFER_H
 #define _BUFFER_H
 
-#include "disposable.h"
+#include "tools/disposable.h"
 
 //默认_begin都是从0开始的顺序表
 //小测试ok

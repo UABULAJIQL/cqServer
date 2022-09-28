@@ -2,7 +2,7 @@
 
 #ifndef _THREADOBJECT_H
 #define _THREADOBJECT_H
-#include "disposable.h"
+#include "tools/disposable.h"
 
 class ThreadObject : public IDisposable {
     public:
