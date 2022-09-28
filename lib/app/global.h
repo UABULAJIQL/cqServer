@@ -3,12 +3,12 @@
 #ifndef _GLOBAL_H
 #define _GLOBAL_H
 
-#include "tools/sigleton.h"
+#include "tools/singleton.h"
 #include "tools/time.h"
 
 #include <mutex>
 
-class Global : public Sigleton<Global> {
+class Global : public Singleton<Global> {
     public:
         //生成序列号
         uint64_t GenerateSN();

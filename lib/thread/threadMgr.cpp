@@ -3,28 +3,33 @@
 #include "thread.h"
 #include "threadObject.h"
 #include <iostream>
+
 ThreadMgr::ThreadMgr() {}
+
 void ThreadMgr::StartAllThread() {
     for (auto bIter = _threads.begin(), eIter = _threads.end(); bIter != eIter;
             ++bIter)
         bIter->second->Start();
 }
+
 bool ThreadMgr::IsGameLoop() {
 
-    bool allRunning = true;
+    //只要有一个线程还在运行那么就说明还没结束
     for (auto bIter = _threads.begin(), eIter = _threads.end(); bIter != eIter;
             ++bIter)
-        if (!bIter->second->IsRun())
-            allRunning = false;
+        if (bIter->second->IsRun())
+            return true;
 
-    return allRunning;
+    return false;
 }
+
 void ThreadMgr::NewThread() {
     std::lock_guard<std::mutex> guard(_mutex);
     auto pThread = new Thread();
     _threads.emplace(pThread->GetSN(), pThread);
     // _threads.insert(std::make_pair(pThread->GetSN(), pThread));
 }
+
 void ThreadMgr::AddObjToThread(ThreadObject *obj) {
     std::lock_guard<std::mutex> guard(_mutex);
     if (!obj->Init()) {

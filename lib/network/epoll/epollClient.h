@@ -17,6 +17,10 @@ class EpollClient : public NetworkConnector {
         EpollClient();
 
         bool Update() override;
+
+        bool Init() override;
+        void RegisterMsgFunction() override;
+
 };
 
 #endif

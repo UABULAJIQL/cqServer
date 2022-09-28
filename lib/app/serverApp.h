@@ -33,7 +33,7 @@ class ServerApp : public IDisposable {
         //启动
         void Run() const;
 
-        //更新时间 保存到全局单例类中
+        //更新当前帧的时间 保存到全局单例类中
         void UpdateTime() const;
 
         bool AddListenerToThread(std::string ip, int port) const;

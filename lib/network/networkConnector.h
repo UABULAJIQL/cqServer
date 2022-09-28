@@ -24,9 +24,6 @@ class NetworkConnector : public Network {
         //从接收缓冲区中获取一个packet
         Packet *GetPacket();
 
-        //帧
-        virtual bool Update() = 0;
-
         //有虚函数 所以要有虚析构
         virtual ~NetworkConnector() = default;
 

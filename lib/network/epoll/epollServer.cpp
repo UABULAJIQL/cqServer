@@ -125,6 +125,7 @@ int EpollServer::Accept() {
         if (tempfd == -1) {
             break;
         }
+        std::cout << "accept socket:" << tempfd << std::endl;
         //上树操作
         AddEventEpoll(_epfd, tempfd, EPOLLIN | EPOLLRDHUP);
         //添加创建cobj

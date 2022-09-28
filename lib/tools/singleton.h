@@ -3,7 +3,7 @@
 #define _SIGLETON_H
 #include "stdexcept"
 
-template <typename T> class Sigleton {
+template <typename T> class Singleton {
     public:
         //参数是右值引用类型
         template <typename... Args> static T *Instance(Args &&...args) {
@@ -30,5 +30,7 @@ template <typename T> class Sigleton {
     private:
         static T *m_pInstance;
 };
+
+template <class T> T *Singleton<T>::m_pInstance = nullptr;
 
 #endif
