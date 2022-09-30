@@ -7,6 +7,7 @@
 
 class ThreadObject;
 class Thread;
+class Packet;
 
 //单例类
 class ThreadMgr : public Singleton<ThreadMgr> {
@@ -28,6 +29,9 @@ class ThreadMgr : public Singleton<ThreadMgr> {
         void NewThread();
         //添加一个包裹类
         void AddObjToThread(ThreadObject *obj);
+
+        //添加packet
+        void AddPacket(Packet * pPacket);
 
         void Dispose();
 };

@@ -9,6 +9,7 @@
 #include <thread>
 
 class ThreadObject;
+class Packet;
 
 //线程类 每个线程实例都管理一组 线程包裹类
 class Thread : public IDisposable, public SnObject {
@@ -27,6 +28,8 @@ class Thread : public IDisposable, public SnObject {
         bool IsRun() const;
 
         void Dispose() override;
+
+        void AddPacket(Packet *pPacket);
 
     protected:
         bool _isRun{false};

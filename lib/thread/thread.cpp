@@ -1,4 +1,5 @@
 #include "thread.h"
+#include "packet/packet.h"
 #include "threadObject.h"
 
 Thread::Thread() {
@@ -60,6 +61,14 @@ void Thread::AddThreadObj(ThreadObject *threadObj) {
 
     std::lock_guard<std::mutex> guard(_mutex);
     _objlist.push_back(threadObj);
+}
+
+void Thread::AddPacket(Packet *pPacket) {
+    std::lock_guard<std::mutex> guard(_mutex);
+    for (auto &obj : _objlist) {
+        if (obj->IsFollowMsgId(pPacket->GetMessgeId()))
+            obj->AddPacket(pPacket);
+    }
 }
 
 void Thread::Dispose() {

@@ -1,6 +1,7 @@
 #include "connectObj.h"
 #include "buffer/networkBuffer.h"
 #include "network.h"
+#include "thread/threadMgr.h"
 
 ConnectObj::ConnectObj(Network *network, int socket)
     : _socket(socket), _network(network) {
@@ -102,12 +103,13 @@ bool ConnectObj::Send() const {
     char *dataTemp = nullptr;
     int len;
     int size;
+    bool rs = false;
     while (true) {
         len = _sendBuf->GetBuffer(dataTemp);
         if (len == 0) {
 
             // std::cout << "长度为0" << std::endl;
-            return true;
+            rs = true;
         }
 
         size = ::send(_socket, dataTemp, len, 0);
@@ -123,7 +125,7 @@ bool ConnectObj::Send() const {
             if (size < len) {
                 std::cout << "下帧送达" << std::endl;
 
-                return true;
+                rs = true;
             }
         }
 
@@ -133,6 +135,17 @@ bool ConnectObj::Send() const {
             return false;
         }
     }
+
+    if (rs) {
+        while (HasRecvData()) {
+            const auto pPacket = _recvBuf->GetPacket();
+            if (pPacket == nullptr)
+                break;
+            ThreadMgr::GetInstance()->AddPacket(pPacket);
+        }
+    }
+
+    return rs;
 }
 
 bool ConnectObj::AddPacket(Packet *packet) {

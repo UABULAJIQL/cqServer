@@ -3,8 +3,11 @@
 #ifndef _THREADOBJECT_H
 #define _THREADOBJECT_H
 #include "tools/disposable.h"
+#include "packet/messageList.h"
 
-class ThreadObject : public IDisposable {
+//每个包裹类都要有一个消息处理基类
+//每个Actor模型...
+class ThreadObject : public IDisposable, public MessageList {
     public:
         // 初始函数
         virtual bool Init() = 0;

@@ -70,3 +70,12 @@ void ThreadMgr::Dispose() {
         ++iter;
     }
 }
+
+void ThreadMgr::AddPacket(Packet *pPacket) {
+    std::lock_guard<std::mutex> guard(_mutex);
+    for(auto & thread : _threads){
+        thread.second->AddPacket(pPacket);
+    }
+
+
+}
