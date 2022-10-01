@@ -73,6 +73,7 @@ void ThreadMgr::Dispose() {
 
 void ThreadMgr::AddPacket(Packet *pPacket) {
     std::lock_guard<std::mutex> guard(_mutex);
+    // std::cout << "线程管理层" << std::endl;
     for(auto & thread : _threads){
         thread.second->AddPacket(pPacket);
     }

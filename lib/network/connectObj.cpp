@@ -54,6 +54,7 @@ bool ConnectObj::HasSendData() const {
 }
 
 bool ConnectObj::Recv() const {
+    // std::cout << "来消息了" << std::endl;
 
     char *dataTemp = nullptr;
     unsigned int len = 0;
@@ -103,6 +104,7 @@ bool ConnectObj::Recv() const {
             const auto pPacket = _recvBuf->GetPacket();
             if (pPacket == nullptr)
                 break;
+            // std::cout << "广播消息" << std::endl;
             ThreadMgr::GetInstance()->AddPacket(pPacket);
         }
     }

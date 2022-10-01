@@ -16,7 +16,7 @@ class ThreadObject : public IDisposable, public MessageList {
         // 帧函数 更新数据
         virtual bool Update() = 0;
 
-        virtual ~ThreadObject() = default;
+        // virtual ~ThreadObject() = default;
 
         bool IsActive() const;
 

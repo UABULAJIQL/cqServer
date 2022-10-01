@@ -2,6 +2,8 @@
 #include "packet/packet.h"
 #include "threadObject.h"
 
+#include <iostream>
+
 Thread::Thread() {
     //默认启动
     this->_isRun = true;
@@ -39,6 +41,7 @@ void Thread::Update() {
     //便利执行包裹类中的 帧函数Update
     for (ThreadObject *pThreadObj : _tempObjList) {
         pThreadObj->Update();
+        pThreadObj->ProcessPacket();
 
         //如果不活跃了 移除
         if (!pThreadObj->IsActive()) {
@@ -64,10 +67,13 @@ void Thread::AddThreadObj(ThreadObject *threadObj) {
 }
 
 void Thread::AddPacket(Packet *pPacket) {
+    // std::cout << "线程层" << std::endl;
     std::lock_guard<std::mutex> guard(_mutex);
     for (auto &obj : _objlist) {
-        if (obj->IsFollowMsgId(pPacket->GetMessgeId()))
+        if (obj->IsFollowMsgId(pPacket->GetMessgeId())){
+
             obj->AddPacket(pPacket);
+        }
     }
 }
 
