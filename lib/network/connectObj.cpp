@@ -59,6 +59,8 @@ bool ConnectObj::Recv() const {
     unsigned int len = 0;
     int size = 0;
 
+    bool rs = false;
+
     while (true) {
 
         //在这个地方扩容
@@ -81,19 +83,31 @@ bool ConnectObj::Recv() const {
 
         } else if (size == 0) {
             //断开连接了
-            return false;
+            break;
         } else {
             //中断错误 || 发送缓冲区满了 ||
             //下次或许可以成功一般出现在非阻塞的操作
             if (errno == EINTR || errno == EWOULDBLOCK || errno == EAGAIN) {
                 // std::cout << "重新" << std::endl;
-                return true;
+                rs = true;
+                break;
             }
 
             std::cout << "有错误 错误码" << errno << std::endl;
-            return false;
+            break;
         }
     }
+
+    if (rs) {
+        while (HasRecvData()) {
+            const auto pPacket = _recvBuf->GetPacket();
+            if (pPacket == nullptr)
+                break;
+            ThreadMgr::GetInstance()->AddPacket(pPacket);
+        }
+    }
+
+    return rs;
 }
 
 // int totalSize = 0;
@@ -110,6 +124,7 @@ bool ConnectObj::Send() const {
 
             // std::cout << "长度为0" << std::endl;
             rs = true;
+            break;
         }
 
         size = ::send(_socket, dataTemp, len, 0);
@@ -126,22 +141,14 @@ bool ConnectObj::Send() const {
                 std::cout << "下帧送达" << std::endl;
 
                 rs = true;
+                break;
             }
         }
 
         if (size == -1) {
             std::cout << "needSendSize:" << len << " error:" << errno
                 << std::endl;
-            return false;
-        }
-    }
-
-    if (rs) {
-        while (HasRecvData()) {
-            const auto pPacket = _recvBuf->GetPacket();
-            if (pPacket == nullptr)
-                break;
-            ThreadMgr::GetInstance()->AddPacket(pPacket);
+            break;
         }
     }
 
