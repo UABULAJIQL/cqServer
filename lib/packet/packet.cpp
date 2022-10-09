@@ -2,9 +2,7 @@
 #include <cstring>
 #include <iostream>
 
-Packet::Packet(unsigned int size) : Buffer(size) {}
-Packet::Packet() : Buffer(PACKET_DEFAULT_SIZE) {}
-
+Packet::Packet(int id, SOCKET socket, unsigned int size) : Buffer(size) {}
 char *Packet::GetBuffer() const { return _pBuffer; }
 
 void Packet::ChangeEndInedx(int size) { _endIndex += size; }
@@ -13,6 +11,4 @@ int Packet::GetMessgeId() const { return _msgId; }
 
 void Packet::SetMessgeId(int msgId) { _msgId = msgId; }
 
-Packet::~Packet(){
-    Buffer::Dispose();
-}
+Packet::~Packet() { Buffer::Dispose(); }
