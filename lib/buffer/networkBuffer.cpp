@@ -6,12 +6,10 @@
 #include <iostream>
 
 //-----Recv----
-RecvNetworkBuffer::RecvNetworkBuffer(unsigned int size, ConnectObj *connectObj)
+RecvNetworkBuffer::RecvNetworkBuffer(ConnectObj *connectObj, unsigned int size)
     : CircularQueueBuffer(size) {
         _fConnectObj = connectObj;
     }
-RecvNetworkBuffer::RecvNetworkBuffer()
-    : CircularQueueBuffer(RECVBUF_DEFAULT_SIZE) {}
 
 // 获取一个packet
 Packet *RecvNetworkBuffer::GetPacket() {
@@ -83,13 +81,11 @@ void RecvNetworkBuffer::ChangeEndIndex(int size) {
 }
 
 //------Send--------
-SendNetworkBuffer::SendNetworkBuffer(unsigned int size, ConnectObj *connectObj)
+SendNetworkBuffer::SendNetworkBuffer(ConnectObj *connectObj, unsigned int size)
     : CircularQueueBuffer(size) {
         _fConnectObj = connectObj;
     }
 
-SendNetworkBuffer::SendNetworkBuffer()
-    : CircularQueueBuffer(SENDBUF_DEFAULT_SIZE) {}
 
 // 将packet添加到 发送缓冲区中 结构（长度 包头 包体)
 bool SendNetworkBuffer::AddPacket(Packet *packet) {

@@ -17,8 +17,7 @@ class RecvNetworkBuffer : public CircularQueueBuffer {
         ConnectObj * _fConnectObj;
 
     public:
-        explicit RecvNetworkBuffer(unsigned int size, ConnectObj *connectObj);
-        RecvNetworkBuffer();
+        explicit RecvNetworkBuffer(ConnectObj *connectObj, unsigned int size = RECVBUF_DEFAULT_SIZE);
 
         //从接收缓冲区中获取一个packet
         Packet *GetPacket();
@@ -36,8 +35,7 @@ class SendNetworkBuffer : public CircularQueueBuffer {
         ConnectObj * _fConnectObj;
 
     public:
-        explicit SendNetworkBuffer(unsigned int size, ConnectObj *connectObj);
-        SendNetworkBuffer();
+        explicit SendNetworkBuffer(ConnectObj *connectObj, unsigned int size = SENDBUF_DEFAULT_SIZE);
 
         //添加一个Packet到发送缓冲区中
         bool AddPacket(Packet *p);
