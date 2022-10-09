@@ -9,10 +9,15 @@ const unsigned int RECVBUF_DEFAULT_SIZE = 1024;
 const unsigned int SENDBUF_DEFAULT_SIZE = 1024;
 //小测 ok
 
+class ConnectObj;
+
 //接收
 class RecvNetworkBuffer : public CircularQueueBuffer {
+    protected:
+        ConnectObj * _fConnectObj;
+
     public:
-        explicit RecvNetworkBuffer(unsigned int size);
+        explicit RecvNetworkBuffer(unsigned int size, ConnectObj *connectObj);
         RecvNetworkBuffer();
 
         //从接收缓冲区中获取一个packet
@@ -27,8 +32,11 @@ class RecvNetworkBuffer : public CircularQueueBuffer {
 
 //发送缓冲区
 class SendNetworkBuffer : public CircularQueueBuffer {
+    protected:
+        ConnectObj * _fConnectObj;
+
     public:
-        explicit SendNetworkBuffer(unsigned int size);
+        explicit SendNetworkBuffer(unsigned int size, ConnectObj *connectObj);
         SendNetworkBuffer();
 
         //添加一个Packet到发送缓冲区中
