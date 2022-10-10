@@ -1,5 +1,6 @@
 #include "networkListen.h"
 #include "network/connectObj.h"
+#include "packet/packet.h"
 
 bool NetworkListen::Listen(int prot, std::string ip = "") {
     //绑定ip和端口
@@ -57,4 +58,15 @@ void NetworkListen::Dispose() {
         }
     }
     _connects.clear();
+}
+
+void NetworkListen::HandleDisconnect(Packet *pPacket) {
+    auto iter = _connects.find(pPacket->GetSocket());
+    if (iter == _connects.end()) {
+        std::cout << "dis connect failed. socket not find. socket:"
+                  << pPacket->GetSocket() << std::endl;
+        return;
+    }
+
+    iter->second->Close();
 }

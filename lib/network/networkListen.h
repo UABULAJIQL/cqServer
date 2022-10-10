@@ -23,6 +23,8 @@ class NetworkListen : public Network {
 
         //创建connectObj 添加到map集合中
         bool CreateConnectObj(SOCKET socket);
+
+        void HandleDisconnect(Packet *pPacket) override;
 };
 
 #endif
