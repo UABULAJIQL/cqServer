@@ -23,12 +23,9 @@ class ThreadMgr : public Singleton<ThreadMgr>, public ThreadObjectList {
     //<序列号, Thread*>
     std::map<uint64_t, Thread *> _threads;
 
-
-    //协议与网络类
+    //协议与网络实例
     std::mutex _locatorMutex;
     std::map<APP_TYPE, Network *> _networkLocator;
-
-
 
   public:
     ThreadMgr();

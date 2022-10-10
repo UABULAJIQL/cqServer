@@ -1,2 +1,3 @@
-# cqServer
-game server development learning
+# 描述
+边学习《多人在线游戏架构实战》边编程的游戏服务端。
+![图片](img/README_2022.10.11_02.17.54.023.png)
