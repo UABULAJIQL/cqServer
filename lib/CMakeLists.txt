@@ -11,9 +11,11 @@ aux_source_directory(./packet _libs)
 aux_source_directory(./thread _libs)
 aux_source_directory(./packet/protobuf _libs)
 aux_source_directory(./app _libs)
+aux_source_directory(./entity _libs)
+aux_source_directory(./http _libs)
 
 #查看输出信息
-#message(${lib_name})
+#message(${_libs})
 
 #设置生成库的路径
 set(LIBRARY_OUTPUT_PATH ${PROJECT_BINARY_DIR}/lib)

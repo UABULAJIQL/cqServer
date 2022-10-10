@@ -11,6 +11,7 @@ class NetworkConnector : public Network {
         int _port{0};
         ConnectObj *_connectObj{nullptr};
 
+        void HandleDisconnect(Packet *pPacket) override;
 
     public:
         //连接
@@ -29,8 +30,6 @@ class NetworkConnector : public Network {
         virtual ~NetworkConnector() = default;
 
         void Dispose() override;
-    protected:
-        void HandleDisconnect(Packet *pPacket) override;
 };
 
 #endif
