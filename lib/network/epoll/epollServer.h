@@ -21,8 +21,6 @@ class EpollServer : public NetworkListen {
         EpollServer();
 
         bool Init() override;
-        void RegisterMsgFunction() override;
-
 
         bool Update() override;
 

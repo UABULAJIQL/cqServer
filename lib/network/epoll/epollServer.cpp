@@ -169,4 +169,3 @@ void EpollServer::ModifyEventEpoll(int epfd, int fd, int events) {
 }
 
 bool EpollServer::Init() { return true; }
-void EpollServer::RegisterMsgFunction() {}
