@@ -22,6 +22,10 @@ class MessageList {
         //添加Packet
         void AddPacket(Packet *pPacket);
 
+
+        static void DispatchPacket(Packet* pPacket);
+        static void SendPacket(Packet* pPacket);
+
     protected:
         std::mutex _msgMutex;
         //待处理的Packet

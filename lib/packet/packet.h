@@ -31,6 +31,9 @@ class Packet : public Buffer {
     void ChangeEndInedx(int size);
     // 获取消息ID
     int GetMessgeId() const;
+    // 获取socket
+    SOCKET GetSocket() const;
+
     void SetMessgeId(int msgId);
     // Packet一般不会去调用Dispose吧所以还是使用析构来释放
     ~Packet();
