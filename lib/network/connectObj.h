@@ -15,6 +15,7 @@ class ConnectObj : IDisposable {
         Network *_network{nullptr};
         RecvNetworkBuffer *_recvBuf{nullptr};
         SendNetworkBuffer *_sendBuf{nullptr};
+        bool _isClose{false};
 
     public:
         ConnectObj(Network *network, int socket);
@@ -36,6 +37,8 @@ class ConnectObj : IDisposable {
         bool AddPacket(Packet* packet);
         Packet* GetPacket();
 
+        void Close();	// 逻辑层发起的关闭
+        bool IsClose() const;
         void Dispose() override;
 };
 

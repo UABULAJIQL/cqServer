@@ -5,8 +5,8 @@
 
 ConnectObj::ConnectObj(Network *network, int socket)
     : _socket(socket), _network(network) {
-        _recvBuf = new RecvNetworkBuffer();
-        _sendBuf = new SendNetworkBuffer();
+        _recvBuf = new RecvNetworkBuffer(this);
+        _sendBuf = new SendNetworkBuffer(this);
     }
 
 int ConnectObj::GetSocket() const { return _socket; }
@@ -181,4 +181,11 @@ void ConnectObj::Dispose() {
 
     //这个可不是你可以释放的
     _network = nullptr;
+}
+void ConnectObj::Close(){
+
+    _isClose = true;
+}
+bool ConnectObj::IsClose() const{
+    return _isClose;
 }
