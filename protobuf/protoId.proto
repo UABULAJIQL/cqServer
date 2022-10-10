@@ -1,9 +1,37 @@
 syntax = "proto3";
+//协议号
 
 package Proto;
 
 enum MsgId {
+
     None = 0;
-    SendData = 1;
-    Over = 2;
+
+    MI_NetworkConnect = 1;
+    MI_NetworkListen = 2;
+
+    MI_NetworkDisconnect = 3;
+    MI_NetworkDisconnectEx = 4;
+
+    MI_NetworkDisconnectToNet = 5;	
+
+    MI_Ping = 101;
+
+    //验证账号
+    C2L_AccountCheck = 1001;
+    // 验证返回结果
+    C2L_AccountCheckRs = 1002;
+
+    MI_AccountQueryOnlineToRedis = 1003;
+    MI_AccountQueryOnlineToRedisRs = 1004;
+
+    // HTTP请求的返回协议
+    MI_AccountCheckToHttpRs = 1005;  
+
+
+
+    MI_RobotSyncState = 5001;
+
+    MI_RobotTestBegin = 5100;
+    MI_RobotTestEnd = 5101;	
 }
