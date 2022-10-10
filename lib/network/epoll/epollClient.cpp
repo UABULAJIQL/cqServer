@@ -96,4 +96,3 @@ bool EpollClient::Update() {
 }
 
 bool EpollClient::Init() { return true; }
-void EpollClient::RegisterMsgFunction() {}
