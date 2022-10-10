@@ -1,5 +1,6 @@
 #include "network.h"
 #include "connectObj.h"
+#include "packet/protobuf/protoId.pb.h"
 
 Network::Network() {
     _socket = socket(AF_INET, SOCK_STREAM, 0);
@@ -10,6 +11,17 @@ Network::Network() {
 void Network::Dispose() {
     close(_socket);
     _socket = -1;
+}
+
+void Network::RegisterMsgFunction() {
+    RegisterFunction(Proto::MsgId::MI_NetworkDisconnectToNet,
+                     std::bind(&Network::HandleDisconnect, this, std::placeholders::_1));
+}
+
+
+void Network::SendPacket(Packet *pPacket) {
+    std::lock_guard<std::mutex> guard(_sendMsgMutex);
+    _sendMsgList.push_back(pPacket);
 }
 
 
