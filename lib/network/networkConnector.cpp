@@ -1,6 +1,7 @@
 #include "networkConnector.h"
 #include "connectObj.h"
 #include "buffer/networkBuffer.h"
+#include "packet/packet.h"
 
 bool NetworkConnector::Connect(std::string ip, int port) {
 
@@ -58,3 +59,10 @@ void NetworkConnector::Dispose(){
 
 }
 
+void NetworkConnector::HandleDisconnect(Packet *pPacket) {
+        std::cout << "dis connect failed. socket not find. socket:"
+                  << pPacket->GetSocket() << std::endl;
+        return;
+
+    _connectObj->Close();
+}

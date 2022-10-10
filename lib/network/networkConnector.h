@@ -11,6 +11,7 @@ class NetworkConnector : public Network {
         int _port{0};
         ConnectObj *_connectObj{nullptr};
 
+
     public:
         //连接
         virtual bool Connect(std::string ip, int port);
@@ -28,6 +29,8 @@ class NetworkConnector : public Network {
         virtual ~NetworkConnector() = default;
 
         void Dispose() override;
+    protected:
+        void HandleDisconnect(Packet *pPacket) override;
 };
 
 #endif
