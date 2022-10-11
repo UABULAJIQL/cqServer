@@ -7,9 +7,10 @@
 #include <jsoncpp/json/json.h>
 #include <string>
 
+// 当前请求状态
 enum HttpResquestState {
-    HRS_Send,     // 发送数据
-    HRS_Process,  // 等待数据
+    HRS_Send,     // 发送状态
+    HRS_Process,  // 执行状态
     HRS_Over,     // 完成
     HRS_NoActive, // 完成后的非激活状态，等待线程删除
     HRS_Timeout,  // 请求超时
@@ -20,6 +21,7 @@ enum HttpResquestMethod {
     HRM_Get,
 };
 
+// 请求的返回结果
 enum CURLMRS {
     CRS_None,
     CRS_OK,
@@ -32,9 +34,14 @@ enum CURLMRS {
 class HttpRequest : public ThreadObject {
 
   protected:
+    // http 请求方式 默认为get
     HttpResquestMethod _method{HRM_Get};
+
+    // CURL指针
     CURL *_pCurl{nullptr};
+    // 批处理CURL的指针容器
     CURLM *_pMultiHandle{nullptr};
+
     CURLMRS _curlRs;
 
     std::string _url, _params;
@@ -50,16 +57,23 @@ class HttpRequest : public ThreadObject {
     bool Init() override;
     void RegisterMsgFunction() override;
 
-    //帧中 判断状态 后给予对应的答复状态
+    // 帧中 判断状态 后给予对应的答复状态
     bool Update() override;
 
   protected:
+    // 发送请求
     bool ProcessSend();
+    // 发送超时处理
     void ProcessTimeout() const;
+
+    //请求结束
     virtual bool ProcessOver();
 
+    // 执行状态
     virtual bool Process();
+    // 执行后成功后获取消息
     virtual void ProcessMsg();
+
     virtual void ProcessMsg(Json::Value value) = 0;
 };
 
