@@ -36,17 +36,16 @@ bool HttpRequest::Update() {
     // 执行状态相对对应的处理函数 并且改变状态
     switch (_state) {
 
-    // 发送转态
+    // 起始发送请求状态
     case HRS_Send:
         if (ProcessSend())
-            _state = HRS_Process;
+            _state = HRS_Process;//目前这里是值设置重复了 在ProcessSend()中已经修改了
         break;
 
-    // 等待状态
+    // 执行状态
     case HRS_Process:
         if (Process())
             _state = HRS_Over;
-
         break;
 
     // 结束状态
@@ -140,7 +139,7 @@ bool HttpRequest::ProcessOver() {
 
 bool HttpRequest::Process() {
     int running_handle_count;
-    //通知执行相应的动作
+    // 通知执行相应的动作
     CURLMcode curlMcode =
         curl_multi_perform(_pMultiHandle, &running_handle_count);
     //-1 执行失败
@@ -156,12 +155,14 @@ bool HttpRequest::Process() {
 
     // 处理完了，不再处理
     if (running_handle_count == 0) {
-        
+
         ProcessMsg();
         return true;
     }
 
     CURLMRS rs = curl_multi_select(_pMultiHandle);
+
+    // 请求超时
     if (rs != CRS_OK && rs != CRS_CURLM_CALL_MULTI_PERFORM) {
         _curlRs = rs;
         _state = HRS_Timeout;
@@ -193,13 +194,13 @@ void HttpRequest::ProcessMsg() {
 
         JSONCPP_STRING errs;
 
-        //将数据解析存入Json::Value中
+        // 将数据解析存入Json::Value中
         bool ok = jsonReader->parse(
             _responseBuffer.data(),
             _responseBuffer.data() + _responseBuffer.size(), &value, &errs);
 
         if (ok && errs.size() == 0) {
-            //成功调用处理Json消息的函数
+            // 成功调用处理Json消息的函数
             ProcessMsg(value);
         } else {
             std::cout << "json parse failed. " << _responseBuffer.c_str()

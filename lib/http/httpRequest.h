@@ -45,7 +45,9 @@ class HttpRequest : public ThreadObject {
     CURLMRS _curlRs;
 
     std::string _url, _params;
+
     std::string _responseBuffer;
+
     HttpResquestState _state{HRS_Send};
 
     std::string _account;
@@ -66,7 +68,7 @@ class HttpRequest : public ThreadObject {
     // 发送超时处理
     void ProcessTimeout() const;
 
-    //请求结束
+    // 请求结束
     virtual bool ProcessOver();
 
     // 执行状态
