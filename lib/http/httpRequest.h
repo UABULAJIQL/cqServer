@@ -10,7 +10,7 @@
 // 当前请求状态
 enum HttpResquestState {
     HRS_Send,     // 发送状态
-    HRS_Process,  // 执行状态
+    HRS_Process,  // 执行等待状态
     HRS_Over,     // 完成
     HRS_NoActive, // 完成后的非激活状态，等待线程删除
     HRS_Timeout,  // 请求超时

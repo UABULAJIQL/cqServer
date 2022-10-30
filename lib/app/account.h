@@ -1,6 +1,8 @@
 #ifndef _ACCOUNT_H
 #define _ACCOUNT_H
 
+//login特有的类
+
 #include "entity/playerMgr.h"
 #include "thread/threadObject.h"
 
@@ -14,6 +16,8 @@ class Account : public ThreadObject {
     bool Init() override;
     void RegisterMsgFunction() override;
     bool Update() override;
+
+    void Dispose() override;
 
   private:
     void HandleAccountCheck(Packet *pPacket);

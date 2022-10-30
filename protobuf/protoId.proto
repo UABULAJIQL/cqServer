@@ -26,7 +26,7 @@ enum MsgId {
     MI_AccountQueryOnlineToRedisRs = 1004;
 
     // HTTP请求的返回协议
-    MI_AccountCheckToHttpRs = 1005;  
+    MI_AccountCheckToHttpRs = 1005;
 
 
 
