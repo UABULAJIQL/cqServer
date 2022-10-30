@@ -8,9 +8,10 @@
 class HttpRequestAccount : public HttpRequest {
   public:
     HttpRequestAccount(std::string username, std::string password);
-    void Dispose();
+    void Dispose() override;
 
   protected:
+    // 从http服务器获取到数据后的处理函数
     virtual void ProcessMsg(Json::Value value) override;
 
   private:

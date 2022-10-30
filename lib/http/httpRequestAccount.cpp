@@ -18,21 +18,35 @@ HttpRequestAccount::HttpRequestAccount(std::string username,
 /* protected*/
 void HttpRequestAccount::ProcessMsg(Json::Value value) {
 
+    // 默认设置未知错误
     Proto::AccountCheckRs::ReturnCode code = Proto::AccountCheckRs::ARC_UNKONWN;
 
     // 解析json数据
     int httpcode = value["returncode"].asInt();
-    if (httpcode == 0)
+
+    switch (httpcode) {
+    case 0:
         code = Proto::AccountCheckRs::ARC_OK;
-    else if (httpcode == 2)
+        break;
+    case 2:
         code = Proto::AccountCheckRs::ARC_NOT_FOUND_ACCOUNT;
-    else if (httpcode == 3)
+        break;
+    case 3:
         code = Proto::AccountCheckRs::ARC_PASSWORD_WRONG;
+        break;
+    case 4:
+        code = Proto::AccountCheckRs::ARC_LOGGING;
+        break;
+    case 5:
+        code = Proto::AccountCheckRs::ARC_TIMEOUT;
+        break;
+    }
 
     Proto::AccountCheckToHttpRs checkProto;
     checkProto.set_return_code(code);
     checkProto.set_account(_account);
 
+    // 数据分发 account类处理
     auto pCheckPacket = new Packet(Proto::MsgId::MI_AccountCheckToHttpRs, 0);
     pCheckPacket->SerializeToBuffer(checkProto);
     DispatchPacket(pCheckPacket);

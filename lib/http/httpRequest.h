@@ -76,6 +76,7 @@ class HttpRequest : public ThreadObject {
     // 执行后成功后获取消息
     virtual void ProcessMsg();
 
+    // 服务端成功从http去获取到数据后如何处理数据
     virtual void ProcessMsg(Json::Value value) = 0;
 };
 

@@ -20,6 +20,7 @@ class Account : public ThreadObject {
     void Dispose() override;
 
   private:
+    // 客户端发送到
     void HandleAccountCheck(Packet *pPacket);
     void HandleAccountCheckToHttpRs(Packet *pPacket);
 };

@@ -12,12 +12,12 @@ message AccountCheck {
 //返回结果
 message AccountCheckRs {
     enum ReturnCode {
-        ARC_OK = 0;
-        ARC_UNKONWN = 1;
-        ARC_NOT_FOUND_ACCOUNT = 2;
-        ARC_PASSWORD_WRONG = 3;
-        ARC_LOGGING = 4;
-        ARC_TIMEOUT = 5;
+        ARC_OK = 0;// 成功
+        ARC_UNKONWN = 1; // 未知
+        ARC_NOT_FOUND_ACCOUNT = 2;// 没有找到账户
+        ARC_PASSWORD_WRONG = 3; // 密码错误
+        ARC_LOGGING = 4; // 登入中
+        ARC_TIMEOUT = 5; // 超时
     }
 
     int32 return_code = 1;
