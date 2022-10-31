@@ -1,6 +1,6 @@
 #include "networkBuffer.h"
-#include "packet/packet.h"
 #include "network/connectObj.h"
+#include "packet/packet.h"
 
 #include <cstring>
 #include <iostream>
@@ -8,8 +8,8 @@
 //-----Recv----
 RecvNetworkBuffer::RecvNetworkBuffer(ConnectObj *connectObj, unsigned int size)
     : CircularQueueBuffer(size) {
-        _fConnectObj = connectObj;
-    }
+    _fConnectObj = connectObj;
+}
 
 // 获取一个packet
 Packet *RecvNetworkBuffer::GetPacket() {
@@ -31,7 +31,8 @@ Packet *RecvNetworkBuffer::GetPacket() {
     }
 
     // 防止意外多开一个大小
-    Packet *packet = new Packet(pHead._msgId, _fConnectObj->GetSocket(), totalSize + 1);
+    Packet *packet =
+        new Packet(pHead._msgId, _fConnectObj->GetSocket(), totalSize + 1);
 
     rs = this->GetData(packet->GetBuffer(),
                        totalSize - sizeof(TotalSizeType) - sizeof(PacketHead));
@@ -83,9 +84,8 @@ void RecvNetworkBuffer::ChangeEndIndex(int size) {
 //------Send--------
 SendNetworkBuffer::SendNetworkBuffer(ConnectObj *connectObj, unsigned int size)
     : CircularQueueBuffer(size) {
-        _fConnectObj = connectObj;
-    }
-
+    _fConnectObj = connectObj;
+}
 
 // 将packet添加到 发送缓冲区中 结构（长度 包头 包体)
 bool SendNetworkBuffer::AddPacket(Packet *packet) {

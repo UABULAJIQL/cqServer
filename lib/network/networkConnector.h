@@ -6,31 +6,31 @@
 class Packet;
 
 class NetworkConnector : public Network {
-    protected:
-        std::string _ip{""};
-        int _port{0};
-        ConnectObj *_connectObj{nullptr};
+  protected:
+    std::string _ip{""};
+    int _port{0};
+    ConnectObj *_connectObj{nullptr};
 
+  public:
+    // 连接
+    virtual bool Connect(std::string ip, int port);
+    // 判断是否连接成功
+    bool IsConnected() const;
+    // 获取connectObj
+    ConnectObj *GetConnectObj() const;
 
-    public:
-        //连接
-        virtual bool Connect(std::string ip, int port);
-        //判断是否连接成功
-        bool IsConnected() const;
-        //获取connectObj
-        ConnectObj *GetConnectObj() const;
+    // 添加一个Packet到发送缓冲区中
+    bool AddPacket(Packet *p);
+    // 从接收缓冲区中获取一个packet
+    Packet *GetPacket();
 
-        //添加一个Packet到发送缓冲区中
-        bool AddPacket(Packet *p);
-        //从接收缓冲区中获取一个packet
-        Packet *GetPacket();
+    // 有虚函数 所以要有虚析构
+    virtual ~NetworkConnector() = default;
 
-        //有虚函数 所以要有虚析构
-        virtual ~NetworkConnector() = default;
+    void Dispose() override;
 
-        void Dispose() override;
-    protected:
-        void HandleDisconnect(Packet *pPacket) override;
+  protected:
+    void HandleDisconnect(Packet *pPacket) override;
 };
 
 #endif

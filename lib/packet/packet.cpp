@@ -12,7 +12,4 @@ int Packet::GetMessgeId() const { return _msgId; }
 void Packet::SetMessgeId(int msgId) { _msgId = msgId; }
 
 Packet::~Packet() { Buffer::Dispose(); }
-SOCKET Packet::GetSocket() const
-{
-    return _socket;
-}
+SOCKET Packet::GetSocket() const { return _socket; }

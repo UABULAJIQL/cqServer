@@ -1,7 +1,7 @@
 
 #ifndef _COMMON_H
 #define _COMMON_H
-//类型
+// 类型
 enum APP_TYPE {
     APP_Listen = 0,
 
@@ -16,7 +16,8 @@ enum APP_TYPE {
 
     APP_APPMGR = APP_GAME_MGR | APP_SPACE_MGR,
 
-    APP_ALL = APP_DB_MGR | APP_GAME_MGR | APP_SPACE_MGR | APP_LOGIN | APP_GAME | APP_SPACE,
+    APP_ALL = APP_DB_MGR | APP_GAME_MGR | APP_SPACE_MGR | APP_LOGIN | APP_GAME |
+              APP_SPACE,
 
 };
 

@@ -25,7 +25,6 @@ void Account::RegisterMsgFunction() {
                                      std::placeholders::_1));
 
     AttachCallBackHandler(mcbf);
-
 }
 
 bool Account::Update() { return true; }

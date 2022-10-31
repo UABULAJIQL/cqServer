@@ -30,7 +30,7 @@ bool Buffer::ExpansionBuffer(unsigned int size) {
     char *newBuffer = new char[_bufferSize + size];
     ::memset(newBuffer, 0, (_bufferSize + size));
 
-    //数据不为空才移动数据
+    // 数据不为空才移动数据
     if (!IsEmpty()) {
         ::memcpy(newBuffer, _pBuffer, UnavailableLength());
     }
@@ -58,24 +58,24 @@ bool Buffer::IsFull() const {
 
 bool Buffer::AddData(const char *data, unsigned int size) {
 
-    //如果剩余空间不够需要扩容
+    // 如果剩余空间不够需要扩容
     while (1) {
         if (AvailableLength() >= size) {
             break;
         } else {
-            //需要扩容
+            // 需要扩容
 
-            //扩容失败 false
+            // 扩容失败 false
             if (!ExpansionBuffer(size - AvailableLength() + 1))
                 return false;
         }
     }
 
-    //如果数据为空 从起始下标开始添加数据
+    // 如果数据为空 从起始下标开始添加数据
     if (IsEmpty()) {
         ::memcpy(_pBuffer, data, size);
         _endIndex = size;
-    } else { //数据不为空 从尾部下标开始添加数据
+    } else { // 数据不为空 从尾部下标开始添加数据
         ::memcpy(_pBuffer + _endIndex, data, size);
         _endIndex += size;
     }
@@ -96,12 +96,12 @@ bool Buffer::GetData(char *data, unsigned int size) {
 }
 
 bool Buffer::Memcpy(char *destination, unsigned int originIndex,
-        unsigned int size) {
+                    unsigned int size) {
     if (destination == nullptr)
         return false;
 
     ::memcpy(destination, _pBuffer + originIndex, size);
-    //强迫症还是清空一下数据
+    // 强迫症还是清空一下数据
     ::memset(_pBuffer + originIndex, 0, size);
     return true;
 }

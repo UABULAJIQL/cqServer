@@ -1,6 +1,6 @@
 #include "networkConnector.h"
-#include "connectObj.h"
 #include "buffer/networkBuffer.h"
+#include "connectObj.h"
 #include "packet/packet.h"
 
 bool NetworkConnector::Connect(std::string ip, int port) {
@@ -25,7 +25,7 @@ bool NetworkConnector::Connect(std::string ip, int port) {
         _connectObj = new ConnectObj(this, _socket);
     }
 
-    //设置非阻塞 已经被这个问题搞了两次了 服了
+    // 设置非阻塞 已经被这个问题搞了两次了 服了
     SetSocketOpt(_socket);
 
     return true;
@@ -43,26 +43,23 @@ bool NetworkConnector::AddPacket(Packet *p) {
     return _connectObj->AddPacket(p);
 }
 
-Packet *NetworkConnector::GetPacket() {
-    return _connectObj->GetPacket();
-}
+Packet *NetworkConnector::GetPacket() { return _connectObj->GetPacket(); }
 
-void NetworkConnector::Dispose(){
+void NetworkConnector::Dispose() {
     Network::Dispose();
 
     _connectObj->Dispose();
 
-    if(_connectObj != nullptr){
+    if (_connectObj != nullptr) {
         delete _connectObj;
         _connectObj = nullptr;
     }
-
 }
 
 void NetworkConnector::HandleDisconnect(Packet *pPacket) {
-        std::cout << "dis connect failed. socket not find. socket:"
-                  << pPacket->GetSocket() << std::endl;
-        return;
+    std::cout << "dis connect failed. socket not find. socket:"
+              << pPacket->GetSocket() << std::endl;
+    return;
 
     _connectObj->Close();
 }

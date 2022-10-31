@@ -22,7 +22,6 @@ void Network::RegisterMsgFunction() {
         Proto::MsgId::MI_NetworkDisconnectToNet,
         std::bind(&Network::HandleDisconnect, this, std::placeholders::_1));
     AttachCallBackHandler(mcbf);
-
 }
 
 void Network::SendPacket(Packet *pPacket) {

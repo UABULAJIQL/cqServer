@@ -6,25 +6,25 @@
 const size_t EVENTS = 1024;
 
 class EpollServer : public NetworkListen {
-    private:
-        struct epoll_event _events[EVENTS];
-        int _epfd{-1};
-        bool _acceptOn = {false};
+  private:
+    struct epoll_event _events[EVENTS];
+    int _epfd{-1};
+    bool _acceptOn = {false};
 
-    private:
-        void InitEpoll();
-        void AddEventEpoll(int epfd, int fd, int events);
-        void DeleteEventEpoll(int epfd, int fd);
-        void ModifyEventEpoll(int epfd, int fd, int events);
+  private:
+    void InitEpoll();
+    void AddEventEpoll(int epfd, int fd, int events);
+    void DeleteEventEpoll(int epfd, int fd);
+    void ModifyEventEpoll(int epfd, int fd, int events);
 
-    public:
-        EpollServer();
+  public:
+    EpollServer();
 
-        bool Init() override;
+    bool Init() override;
 
-        bool Update() override;
+    bool Update() override;
 
-    protected:
-        int Accept() override;
+  protected:
+    int Accept() override;
 };
 #endif

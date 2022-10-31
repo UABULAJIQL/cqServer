@@ -6,20 +6,19 @@
 #include <sys/epoll.h>
 
 class EpollClient : public NetworkConnector {
-    private:
-        struct epoll_event _setEvent;
+  private:
+    struct epoll_event _setEvent;
 
-        struct epoll_event _getEvent;
+    struct epoll_event _getEvent;
 
-        int _epfd;
+    int _epfd;
 
-    public:
-        EpollClient();
+  public:
+    EpollClient();
 
-        bool Update() override;
+    bool Update() override;
 
-        bool Init() override;
-
+    bool Init() override;
 };
 
 #endif

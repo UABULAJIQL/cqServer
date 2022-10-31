@@ -60,7 +60,8 @@ class MessageCallBackFunctionFilterObj : public MessageCallBackFunction {
     bool IsFollowMsgId(Packet *packet) override;
     void ProcessPacket() override;
 
-    // 返回值类型为T*参数为socket函数指针类型 条件赛选的条件函数 为nullptr则过滤掉
+    // 返回值类型为T*参数为socket函数指针类型 条件赛选的条件函数
+    // 为nullptr则过滤掉
     HandleGetObject GetPacketObject{nullptr};
 
     // 将无差别接收协议的map集合数据拷贝过来

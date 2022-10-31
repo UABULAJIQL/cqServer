@@ -4,17 +4,17 @@
 #include "app/global.h"
 
 class SnObject {
-    public:
-        virtual ~SnObject() {}
+  public:
+    virtual ~SnObject() {}
 
-        SnObject() { _sn = Global::GetInstance()->GenerateSN(); }
+    SnObject() { _sn = Global::GetInstance()->GenerateSN(); }
 
-        SnObject(uint64_t sn) { _sn = sn; }
+    SnObject(uint64_t sn) { _sn = sn; }
 
-        uint64_t GetSN() const { return _sn; }
+    uint64_t GetSN() const { return _sn; }
 
-    protected:
-        uint64_t _sn;
+  protected:
+    uint64_t _sn;
 };
 
 #endif

@@ -1,23 +1,23 @@
-//线程管理类
+// 线程管理类
 #include "threadMgr.h"
+#include "network/networkListen.h"
 #include "thread.h"
 #include "threadObject.h"
-#include "network/networkListen.h"
 #include <iostream>
 
 ThreadMgr::ThreadMgr() {}
 
 void ThreadMgr::StartAllThread() {
     for (auto bIter = _threads.begin(), eIter = _threads.end(); bIter != eIter;
-            ++bIter)
+         ++bIter)
         bIter->second->Start();
 }
 
 bool ThreadMgr::IsGameLoop() {
 
-    //只要有一个线程还在运行那么就说明还没结束
+    // 只要有一个线程还在运行那么就说明还没结束
     for (auto bIter = _threads.begin(), eIter = _threads.end(); bIter != eIter;
-            ++bIter)
+         ++bIter)
         if (bIter->second->IsRun())
             return true;
 
@@ -39,7 +39,7 @@ bool ThreadMgr::AddObjToThread(ThreadObject *obj) {
         iter = _threads.find(_lastThreadSn);
     }
 
-    //要么没找到 要么一开始就是空的
+    // 要么没找到 要么一开始就是空的
     if (iter == _threads.end()) {
         std::cout << "AddObjToThread iter为空" << std::endl;
         return false;
@@ -71,18 +71,15 @@ void ThreadMgr::Dispose() {
     }
 }
 
-
 void ThreadMgr::DispatchPacket(Packet *pPacket) {
-    //主线程
+    // 主线程
     AddPacket(pPacket);
 
     std::lock_guard<std::mutex> guard(_locator_lock);
-    //子线程
-    for(auto & thread : _threads){
+    // 子线程
+    for (auto &thread : _threads) {
         thread.second->AddPacket(pPacket);
     }
-
-
 }
 
 void ThreadMgr::SendPacket(Packet *pPacket) {
@@ -97,9 +94,7 @@ void ThreadMgr::AddNetworkToThread(APP_TYPE appType, Network *pNetwork) {
 
     std::lock_guard<std::mutex> guard(_locator_lock);
     _networkLocator[appType] = pNetwork;
-
 }
-
 
 Network *ThreadMgr::GetNetwork(APP_TYPE appType) {
     std::lock_guard<std::mutex> guard(_locator_lock);

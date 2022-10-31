@@ -39,7 +39,8 @@ bool HttpRequest::Update() {
     // 起始发送请求状态
     case HRS_Send:
         if (ProcessSend())
-            _state = HRS_Process;//目前这里是值设置重复了 在ProcessSend()中已经修改了
+            _state = HRS_Process; // 目前这里是值设置重复了
+                                  // 在ProcessSend()中已经修改了
         break;
 
     // 执行状态

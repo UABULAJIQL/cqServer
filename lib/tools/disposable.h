@@ -9,7 +9,7 @@
 class IDisposable {
   public:
     virtual ~IDisposable() = default;
-    //清理资源函数
+    // 清理资源函数
     virtual void Dispose() = 0;
 };
 

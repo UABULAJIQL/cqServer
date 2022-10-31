@@ -4,9 +4,9 @@
 #include "serverApp.h"
 
 class LoginApp : public ServerApp {
-    public:
-        explicit LoginApp();
-        void InitApp() override;
+  public:
+    explicit LoginApp();
+    void InitApp() override;
 };
 
 #endif

@@ -10,13 +10,13 @@ EpollClient::EpollClient() {
 
 bool EpollClient::Update() {
 
-    //重连 目前这里就一次-----------
+    // 重连 目前这里就一次-----------
     if (_socket == -1) {
         if (!Connect(_ip, _port))
-            return false; //重试一次就直接退出
+            return false; // 重试一次就直接退出
     }
 
-    //判断发送缓冲区中如果有东西 添加发送事件
+    // 判断发送缓冲区中如果有东西 添加发送事件
     if (_connectObj->HasSendData()) {
 
         _setEvent.events = EPOLLIN | EPOLLOUT | EPOLLRDHUP;
@@ -24,54 +24,54 @@ bool EpollClient::Update() {
         epoll_ctl(_epfd, EPOLL_CTL_MOD, _socket, &_setEvent);
     }
 
-    //设置50毫秒的阻塞
+    // 设置50毫秒的阻塞
     int nready = epoll_wait(_epfd, &_getEvent, sizeof(_getEvent), 50);
 
     if (nready > 0) {
 
         do {
-            //读端关闭 错误 读写都关闭
+            // 读端关闭 错误 读写都关闭
             if (_getEvent.events & EPOLLRDHUP || _getEvent.events & EPOLLERR ||
-                    _getEvent.events & EPOLLHUP) {
+                _getEvent.events & EPOLLHUP) {
 
                 std::cout << "断开连接" << std::endl;
 
-                //释放cobj
+                // 释放cobj
                 _connectObj->Dispose();
                 if (_connectObj != nullptr) {
                     delete _connectObj;
                     _connectObj = nullptr;
                 }
 
-                //下树
+                // 下树
                 epoll_ctl(_epfd, EPOLL_CTL_DEL, _socket, nullptr);
 
                 // return false;
                 break;
             }
 
-            //接收事件
+            // 接收事件
             if (_getEvent.events & EPOLLIN) {
                 // std::cout << "客户端接收到消息" << std::endl;
                 if (!_connectObj->Recv()) {
                     // std::cout << "接收消息失败" << std::endl;
-                    //释放cobj
+                    // 释放cobj
                     _connectObj->Dispose();
                     if (_connectObj != nullptr) {
                         delete _connectObj;
                         _connectObj = nullptr;
                     }
 
-                    //下树
+                    // 下树
                     epoll_ctl(_epfd, EPOLL_CTL_DEL, _socket, nullptr);
                 }
                 // std::cout << "接收消息成功" << std::endl;
                 break;
             }
 
-            //发送事件
+            // 发送事件
             if (_getEvent.events & EPOLLOUT) {
-                //发送
+                // 发送
                 _connectObj->Send();
 
                 _setEvent.events = EPOLLIN | EPOLLRDHUP;

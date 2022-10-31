@@ -1,8 +1,8 @@
 #ifndef _THREADMGR_H
 #define _THREADMGR_H
 
-#include "tools/common.h"
 #include "thread/thread.h"
+#include "tools/common.h"
 #include "tools/singleton.h"
 
 #include <map>
@@ -23,7 +23,7 @@ class ThreadMgr : public Singleton<ThreadMgr>, public ThreadObjectList {
     //<序列号, Thread*>
     std::map<uint64_t, Thread *> _threads;
 
-    //协议与网络实例
+    // 协议与网络实例
     std::mutex _locatorMutex;
     std::map<APP_TYPE, Network *> _networkLocator;
 
@@ -45,8 +45,6 @@ class ThreadMgr : public Singleton<ThreadMgr>, public ThreadObjectList {
 
     // 向注册了APP_Listen协议的networkListen发送packet
     void SendPacket(Packet *pPacket);
-
-
 
     void Dispose() override;
 

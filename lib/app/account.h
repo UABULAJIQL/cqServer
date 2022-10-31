@@ -1,7 +1,7 @@
 #ifndef _ACCOUNT_H
 #define _ACCOUNT_H
 
-//login特有的类
+// login特有的类
 
 #include "entity/playerMgr.h"
 #include "thread/threadObject.h"

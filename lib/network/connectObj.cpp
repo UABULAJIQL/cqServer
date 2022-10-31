@@ -5,13 +5,13 @@
 
 ConnectObj::ConnectObj(Network *network, int socket)
     : _socket(socket), _network(network) {
-        _recvBuf = new RecvNetworkBuffer(this);
-        _sendBuf = new SendNetworkBuffer(this);
-    }
+    _recvBuf = new RecvNetworkBuffer(this);
+    _sendBuf = new SendNetworkBuffer(this);
+}
 
 int ConnectObj::GetSocket() const { return _socket; }
 
-//这里真的是操蛋 要判断是否满足一个packet
+// 这里真的是操蛋 要判断是否满足一个packet
 bool ConnectObj::HasRecvData() const {
 
     unsigned short totalSizeTypeSize = sizeof(TotalSizeType);
@@ -25,7 +25,7 @@ bool ConnectObj::HasRecvData() const {
     else if (_recvBuf->GetEndIndex() > _recvBuf->GetBeginIndex())
         rightSize = _recvBuf->GetEndIndex() - _recvBuf->GetBeginIndex();
 
-    //数据包总长度
+    // 数据包总长度
     unsigned short totalSize = 0;
     char *beginBuffer = _recvBuf->GetBuffer() + _recvBuf->GetBeginIndex();
 
@@ -34,7 +34,7 @@ bool ConnectObj::HasRecvData() const {
     } else {
         ::memcpy(&totalSize, beginBuffer, rightSize);
         ::memcpy(&totalSize + rightSize, _recvBuf->GetBuffer(),
-                totalSizeTypeSize - rightSize);
+                 totalSizeTypeSize - rightSize);
     }
 
     if (_recvBuf->UnavailableLength() >= totalSize) {
@@ -64,7 +64,7 @@ bool ConnectObj::Recv() const {
 
     while (true) {
 
-        //在这个地方扩容
+        // 在这个地方扩容
         if (_recvBuf->AvailableLength() < sizeof(TotalSizeType)) {
             if (!_recvBuf->ExpansionBuffer()) {
                 std::cout << "接收扩容失败" << std::endl;
@@ -83,11 +83,11 @@ bool ConnectObj::Recv() const {
             _recvBuf->ChangeEndIndex(size);
 
         } else if (size == 0) {
-            //断开连接了
+            // 断开连接了
             break;
         } else {
-            //中断错误 || 发送缓冲区满了 ||
-            //下次或许可以成功一般出现在非阻塞的操作
+            // 中断错误 || 发送缓冲区满了 ||
+            // 下次或许可以成功一般出现在非阻塞的操作
             if (errno == EINTR || errno == EWOULDBLOCK || errno == EAGAIN) {
                 // std::cout << "重新" << std::endl;
                 rs = true;
@@ -138,7 +138,7 @@ bool ConnectObj::Send() const {
             // msgNum
             //     << "条消息" << std::endl;
             _sendBuf->ChangeBeginIndex(size);
-            //下帧送达
+            // 下帧送达
             if (size < len) {
                 std::cout << "下帧送达" << std::endl;
 
@@ -149,7 +149,7 @@ bool ConnectObj::Send() const {
 
         if (size == -1) {
             std::cout << "needSendSize:" << len << " error:" << errno
-                << std::endl;
+                      << std::endl;
             break;
         }
     }
@@ -179,13 +179,8 @@ void ConnectObj::Dispose() {
         _sendBuf = nullptr;
     }
 
-    //这个可不是你可以释放的
+    // 这个可不是你可以释放的
     _network = nullptr;
 }
-void ConnectObj::Close(){
-
-    _isClose = true;
-}
-bool ConnectObj::IsClose() const{
-    return _isClose;
-}
+void ConnectObj::Close() { _isClose = true; }
+bool ConnectObj::IsClose() const { return _isClose; }
