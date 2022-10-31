@@ -1,5 +1,6 @@
 #ifndef _HTTPREQUESTACCOUNT_H
 #define _HTTPREQUESTACCOUNT_H
+// 向http服务器发送登录请求
 
 #include "http/httpRequest.h"
 

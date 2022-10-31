@@ -1,5 +1,6 @@
 #ifndef _HTTPREQUEST_H
 #define _HTTPREQUEST_H
+// 发送http请求基类
 
 #include "thread/threadObject.h"
 

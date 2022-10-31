@@ -45,7 +45,7 @@ void ThreadObjectList::AddPacket(Packet *pPacket) {
     // std::cout << "线程层" << std::endl;
     std::lock_guard<std::mutex> guard(_mutex);
     for (auto &obj : _objlist) {
-        if (obj->IsFollowMsgId(pPacket->GetMessgeId())) {
+        if (obj->IsFollowMsgId(pPacket)) {
 
             obj->AddPacket(pPacket);
         }

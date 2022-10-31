@@ -2,6 +2,8 @@
 #include "connectObj.h"
 #include "packet/protobuf/protoId.pb.h"
 
+#include "packet/messageList.h"
+
 Network::Network() {
     _socket = socket(AF_INET, SOCK_STREAM, 0);
     if (_socket == -1)
@@ -14,30 +16,33 @@ void Network::Dispose() {
 }
 
 void Network::RegisterMsgFunction() {
-    RegisterFunction(Proto::MsgId::MI_NetworkDisconnectToNet,
-                     std::bind(&Network::HandleDisconnect, this, std::placeholders::_1));
-}
 
+    auto *mcbf = new MessageCallBackFunction();
+    mcbf->RegisterFunction(
+        Proto::MsgId::MI_NetworkDisconnectToNet,
+        std::bind(&Network::HandleDisconnect, this, std::placeholders::_1));
+    AttachCallBackHandler(mcbf);
+
+}
 
 void Network::SendPacket(Packet *pPacket) {
     std::lock_guard<std::mutex> guard(_sendMsgMutex);
     _sendMsgList.push_back(pPacket);
 }
 
-
 SOCKET Network::GetSocket() { return _socket; }
 
 void Network::SetSocketOpt(SOCKET socket) {
-    //启动端口复用
+    // 启动端口复用
     bool isReuseAddr = true;
     setsockopt(socket, SOL_SOCKET, SO_REUSEADDR, (void *)&isReuseAddr,
-            sizeof(isReuseAddr));
-    //设置套接字接收和发送的超时时间
+               sizeof(isReuseAddr));
+    // 设置套接字接收和发送的超时时间
     int netTimeout = 3000;
     setsockopt(socket, SOL_SOCKET, SO_RCVTIMEO, (void *)&netTimeout,
-            sizeof(netTimeout));
+               sizeof(netTimeout));
     setsockopt(socket, SOL_SOCKET, SO_SNDTIMEO, (void *)&netTimeout,
-            sizeof(netTimeout));
+               sizeof(netTimeout));
 
     // 设置文件描述符非阻塞
     int flags = fcntl(socket, F_GETFL, 0);

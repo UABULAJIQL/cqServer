@@ -2,6 +2,7 @@
 
 #include "entity/player.h"
 #include "http/httpRequestAccount.h"
+#include "packet/messageList.h"
 #include "packet/packet.h"
 #include "packet/protobuf/msg.pb.h"
 #include "packet/protobuf/protoId.pb.h"
@@ -11,15 +12,20 @@
 
 bool Account::Init() { return true; }
 void Account::RegisterMsgFunction() {
+    auto *mcbf = new MessageCallBackFunction();
+
     // 接收客户端发送登录请求的协议
-    RegisterFunction(
+    mcbf->RegisterFunction(
         Proto::MsgId::C2L_AccountCheck,
         std::bind(&Account::HandleAccountCheck, this, std::placeholders::_1));
 
     // 服务端的login向http服务器发送请求后 http服务器返回的结果
-    RegisterFunction(Proto::MsgId::MI_AccountCheckToHttpRs,
-                     std::bind(&Account::HandleAccountCheckToHttpRs, this,
-                               std::placeholders::_1));
+    mcbf->RegisterFunction(Proto::MsgId::MI_AccountCheckToHttpRs,
+                           std::bind(&Account::HandleAccountCheckToHttpRs, this,
+                                     std::placeholders::_1));
+
+    AttachCallBackHandler(mcbf);
+
 }
 
 bool Account::Update() { return true; }
@@ -47,6 +53,7 @@ void Account::HandleAccountCheck(Packet *pPacket) {
         // 关闭网络
         const auto pPacketDis =
             new Packet(Proto::MsgId::MI_NetworkDisconnectToNet, socket);
+
         DispatchPacket(pPacketDis);
 
         return;
@@ -57,7 +64,7 @@ void Account::HandleAccountCheck(Packet *pPacket) {
     // 验证账号(HTTP) 添加http请求
     HttpRequestAccount *pHttp =
         new HttpRequestAccount(protoCheck.account(), protoCheck.password());
-    //将请求添加到线程中
+    // 将请求添加到线程中
     ThreadMgr::GetInstance()->AddObjToThread(pHttp);
 }
 void Account::HandleAccountCheckToHttpRs(Packet *pPacket) {
